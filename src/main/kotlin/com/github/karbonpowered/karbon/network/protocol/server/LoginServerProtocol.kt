@@ -9,7 +9,7 @@ import java.util.*
 object LoginServerProtocol : LoginProtocol(true) {
     init {
         registerHandler(LoginStartC2SPacket::class) { session, packet ->
-            println("$session: $packet")
+            println("[Join] $session: $packet")
             session.send(LoginSuccessS2CPacket(GameProfile.of(UUID.randomUUID(), packet.username)))
         }
     }
