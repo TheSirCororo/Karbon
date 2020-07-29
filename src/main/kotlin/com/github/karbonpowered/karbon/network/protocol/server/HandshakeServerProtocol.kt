@@ -12,7 +12,7 @@ object HandshakeServerProtocol : HandshakeProtocol(true) {
                 ProtocolState.HANDSHAKE -> throw RuntimeException("Handshake after handshake!?")
                 ProtocolState.QUERY -> QueryServerProtocol
                 ProtocolState.LOGIN -> LoginServerProtocol
-                ProtocolState.PLAY -> TODO()
+                ProtocolState.GAME -> GameServerProtocol
             }
             println("$session Handshaking")
         }

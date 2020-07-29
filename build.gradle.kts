@@ -27,6 +27,7 @@ dependencies {
     api("com.github.karbonpowered", "network", network_version)
     api("com.github.karbonpowered", "protocol", protocol_version)
     api("com.github.karbonpowered", "karbonpowered-api", api_version)
+    api("com.github.Steveice10:MCProtocolLib:3e33a3c81e")
 }
 
 tasks {
