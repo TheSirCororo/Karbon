@@ -6,6 +6,7 @@ import com.github.karbonpowered.api.catalog.CatalogType
 import com.github.karbonpowered.api.entity.living.humanoid.player.gamemode.GameMode
 import com.github.karbonpowered.api.entity.living.humanoid.player.hand.HandType
 import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.ModelPart
+import com.github.karbonpowered.api.item.inventory.ContainerType
 import com.github.karbonpowered.api.nbt.BinaryTagType
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.UnknownTypeException
@@ -18,6 +19,7 @@ import com.github.karbonpowered.api.text.serializer.TextSerializer
 import com.github.karbonpowered.karbon.entity.living.humanoid.player.gamemode.KarbonGameMode
 import com.github.karbonpowered.karbon.entity.living.humanoid.player.hand.KarbonHandType
 import com.github.karbonpowered.karbon.entity.living.humanoid.player.modelpart.KarbonModelPart
+import com.github.karbonpowered.karbon.item.inventory.KarbonContainerType
 import com.github.karbonpowered.karbon.text.chat.KarbonChatVisibility
 import com.github.karbonpowered.karbon.text.chat.KarbonMessagePosition
 import com.github.karbonpowered.text.format.KarbonTextColor
@@ -72,5 +74,6 @@ object KarbonCatalogRegistry : CatalogRegistry {
         register(GameMode::class, KarbonGameMode.generate())
         register(ModelPart::class, KarbonModelPart.generate())
         register(HandType::class, KarbonHandType.generate())
+        register(ContainerType::class, KarbonContainerType.generate())
     }
 }

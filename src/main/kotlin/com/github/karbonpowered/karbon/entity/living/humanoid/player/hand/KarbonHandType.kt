@@ -9,6 +9,25 @@ data class KarbonHandType(
         override val key: CatalogKey,
         override val translation: Translation
 ) : HandType {
+    private val hashCode: Int by lazy {
+        key.hashCode()
+    }
+
+    override fun hashCode(): Int = hashCode
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as KarbonHandType
+
+        if (key != other.key) return false
+
+        return true
+    }
+
+    override fun toString(): String = "HandType(key=$key)"
+
     companion object {
         fun generate() = sequenceOf(
                 "MAIN_HAND" to { KarbonHandType(CatalogKey.minecraft("main_hand"), TranslationRegistry.translate("options.mainHand.right")) },

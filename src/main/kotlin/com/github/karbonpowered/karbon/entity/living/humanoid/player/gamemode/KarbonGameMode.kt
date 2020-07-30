@@ -9,6 +9,25 @@ data class KarbonGameMode(
         override val key: CatalogKey,
         override val translation: Translation
 ) : GameMode {
+    private val hashCode: Int by lazy {
+        key.hashCode()
+    }
+
+    override fun hashCode(): Int = hashCode
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as KarbonGameMode
+
+        if (key != other.key) return false
+
+        return true
+    }
+
+    override fun toString(): String = "GameMode(key=$key)"
+
     companion object {
         fun generate() = sequenceOf(
                 "SURVIVAL" to { KarbonGameMode(CatalogKey.minecraft("survival"), TranslationRegistry.translate("gameMode.survival")) },

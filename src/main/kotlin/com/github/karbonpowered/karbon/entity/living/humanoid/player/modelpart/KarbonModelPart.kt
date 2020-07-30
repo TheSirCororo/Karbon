@@ -9,6 +9,25 @@ class KarbonModelPart(
         override val key: CatalogKey,
         override val translation: Translation
 ) : ModelPart {
+    private val hashCode by lazy {
+        key.hashCode()
+    }
+
+    override fun hashCode(): Int = hashCode
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as KarbonModelPart
+
+        if (key != other.key) return false
+
+        return true
+    }
+
+    override fun toString(): String = "ModelPart(key=$key)"
+
     companion object {
         fun generate() = sequenceOf(
                 "CAPE" to { KarbonModelPart(CatalogKey.minecraft("cape"), TranslationRegistry.translate("options.modelPart.cape")) },
