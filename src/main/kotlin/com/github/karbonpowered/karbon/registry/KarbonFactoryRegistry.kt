@@ -64,6 +64,7 @@ object KarbonFactoryRegistry : FactoryRegistry {
         registerFactory(DoubleBinaryTag.Factory::class, KarbonDoubleBinaryTag.Factory)
         registerFactory(ByteArrayBinaryTag.Factory::class, KarbonByteArrayBinaryTag.Factory)
         registerFactory(StringBinaryTag.Factory::class, KarbonStringBinaryTag.Factory)
+        registerFactory(CompoundBinaryTag.Factory::class, KarbonCompoundBinaryTag.Factory)
         registerFactory(IntArrayBinaryTag.Factory::class, KarbonIntArrayBinaryTag.Factory)
         registerFactory(LongArrayBinaryTag.Factory::class, KarbonLongArrayBinaryTag.Factory)
     }
