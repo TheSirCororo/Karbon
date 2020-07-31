@@ -9,11 +9,7 @@ class KarbonModelPart(
         override val key: CatalogKey,
         override val translation: Translation
 ) : ModelPart {
-    private val hashCode by lazy {
-        key.hashCode()
-    }
-
-    override fun hashCode(): Int = hashCode
+    override fun hashCode(): Int = key.hashCode()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

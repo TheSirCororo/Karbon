@@ -13,13 +13,9 @@ data class KarbonChatVisibility(
         override val translation: Translation,
         val function: Function<MessagePosition, Boolean>
 ) : ChatVisibility {
-    private val hashCode: Int by lazy {
-        key.hashCode()
-    }
-
     override fun isVisible(messagePosition: MessagePosition): Boolean = function.apply(messagePosition)
 
-    override fun hashCode(): Int = hashCode
+    override fun hashCode(): Int = key.hashCode()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

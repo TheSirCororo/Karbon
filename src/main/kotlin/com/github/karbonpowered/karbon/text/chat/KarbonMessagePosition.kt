@@ -6,11 +6,7 @@ import com.github.karbonpowered.api.text.chat.MessagePosition
 class KarbonMessagePosition(
         override val key: CatalogKey
 ) : MessagePosition {
-    private val hashCode: Int by lazy {
-        key.hashCode()
-    }
-
-    override fun hashCode(): Int = hashCode
+    override fun hashCode(): Int = key.hashCode()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

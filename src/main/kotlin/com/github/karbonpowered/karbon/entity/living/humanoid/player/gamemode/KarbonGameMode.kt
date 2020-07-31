@@ -9,11 +9,7 @@ data class KarbonGameMode(
         override val key: CatalogKey,
         override val translation: Translation
 ) : GameMode {
-    private val hashCode: Int by lazy {
-        key.hashCode()
-    }
-
-    override fun hashCode(): Int = hashCode
+    override fun hashCode(): Int = key.hashCode()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

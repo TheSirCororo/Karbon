@@ -46,6 +46,7 @@ fun main() {
         }
         bind(InetSocketAddress(2000))
     }
+    System.gc()
 }
 
 fun Karbon.initialize() {

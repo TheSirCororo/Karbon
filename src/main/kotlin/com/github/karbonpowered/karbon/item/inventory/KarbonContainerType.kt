@@ -6,11 +6,7 @@ import com.github.karbonpowered.api.item.inventory.ContainerType
 class KarbonContainerType(
         override val key: CatalogKey
 ) : ContainerType {
-    private val hashCode: Int by lazy {
-        key.hashCode()
-    }
-
-    override fun hashCode(): Int = hashCode
+    override fun hashCode(): Int = key.hashCode()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
