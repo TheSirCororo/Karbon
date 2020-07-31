@@ -3,8 +3,8 @@ package com.github.karbonpowered.karbon.catalog
 import com.github.karbonpowered.api.catalog.CatalogKey
 
 data class KarbonCatalogKey(
-    override val namespace: String,
-    override val value: String
+        override val namespace: String,
+        override val value: String
 ) : CatalogKey {
     private val hashCode: Int by lazy {
         var result = namespace.hashCode()

@@ -4,9 +4,9 @@ import com.github.karbonpowered.api.data.persistence.DataContainer
 import com.github.karbonpowered.api.profile.property.ProfileProperty
 
 data class KarbonProfileProperty(
-    override val name: String,
-    override val value: String,
-    override val signature: String?
+        override val name: String,
+        override val value: String,
+        override val signature: String?
 ) : ProfileProperty {
     override val contentVersion: Int = 0
 

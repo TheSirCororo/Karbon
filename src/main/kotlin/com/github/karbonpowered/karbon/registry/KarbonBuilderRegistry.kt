@@ -19,11 +19,12 @@ import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
 
 object KarbonBuilderRegistry : BuilderRegistry {
-    private val builders = ConcurrentHashMap<Class<*>, ()->Any>()
+    private val builders = ConcurrentHashMap<Class<*>, () -> Any>()
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ResettableBuilder<*, in T>> provideBuilder(builderClass: Class<T>): T =
-        builders[builderClass]?.invoke() as? T ?: throw UnknownTypeException("Type '$builderClass' has no builder registered!")
+            builders[builderClass]?.invoke() as? T
+                    ?: throw UnknownTypeException("Type '$builderClass' has no builder registered!")
 
     private fun <T : ResettableBuilder<*, in T>> registerBuilder(clazz: Class<T>, builder: () -> T): BuilderRegistry = apply {
         if (builders.containsKey(clazz)) {

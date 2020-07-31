@@ -9,5 +9,5 @@ object KarbonGameProfileManager : GameProfileManager {
     override fun createProfile(uniqueId: UUID, name: String?): GameProfile = KarbonGameProfile(uniqueId, name ?: "")
 
     override fun createProfileProperty(name: String, value: String, signature: String?): ProfileProperty =
-        KarbonProfileProperty(name, value, signature)
+            KarbonProfileProperty(name, value, signature)
 }

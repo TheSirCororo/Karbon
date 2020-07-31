@@ -36,28 +36,31 @@ object KarbonCatalogRegistry : CatalogRegistry {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : CatalogType, E : T> getProvider(typeClass: Class<T>, suggestedId: String): Supplier<E> {
-        val catalogProviders = providers[typeClass] ?: throw UnknownTypeException("Provider for type '$typeClass' has not been registered!")
-        val catalogProvider = catalogProviders[suggestedId] ?: throw UnknownTypeException("Provider for type '$typeClass' with id '$suggestedId' has not been registered!")
+        val catalogProviders = providers[typeClass]
+                ?: throw UnknownTypeException("Provider for type '$typeClass' has not been registered!")
+        val catalogProvider = catalogProviders[suggestedId]
+                ?: throw UnknownTypeException("Provider for type '$typeClass' with id '$suggestedId' has not been registered!")
         return catalogProvider as Supplier<E>
     }
 
     override fun <T : CatalogType> get(typeClass: Class<T>, key: CatalogKey): T? = getAllOf(typeClass).filter { it.key == key }.findFirst().orElseGet { null }
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : CatalogType> getAllOf(typeClass: Class<T>): Stream<T> = providers[typeClass]?.values?.stream()?.map { it.get() as T } ?: Stream.empty()
+    override fun <T : CatalogType> getAllOf(typeClass: Class<T>): Stream<T> = providers[typeClass]?.values?.stream()?.map { it.get() as T }
+            ?: Stream.empty()
 
     override fun <T : CatalogType> getAllFor(typeClass: Class<T>, namespace: String): Stream<T> = getAllOf(typeClass).filter { it.key.namespace == namespace }
 
     private fun <T : CatalogType, E : T> register(typeClass: KClass<T>, suggestedId: String, supplier: Supplier<E>) = register(typeClass.java, suggestedId, supplier)
     private fun <T : CatalogType, E : T> register(typeClass: Class<T>, suggestedId: String, supplier: Supplier<E>) = apply {
-       val catalogProviders = providers.getOrPut(typeClass) { HashMap() }
+        val catalogProviders = providers.getOrPut(typeClass) { HashMap() }
         if (catalogProviders.containsKey(suggestedId)) {
             throw DuplicateRegistrationException("Catalog '$typeClass' with id '$suggestedId' has already registered!")
         }
         catalogProviders[suggestedId] = supplier
     }
 
-    private fun <T : CatalogType, E : T> register(typeClass: KClass<T>, suppliers: Sequence<Pair<String, ()->E>>) = apply {
+    private fun <T : CatalogType, E : T> register(typeClass: KClass<T>, suppliers: Sequence<Pair<String, () -> E>>) = apply {
         suppliers.forEach {
             register(typeClass, it.first, it.second)
         }

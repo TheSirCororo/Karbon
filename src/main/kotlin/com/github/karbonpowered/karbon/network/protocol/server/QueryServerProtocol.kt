@@ -19,12 +19,12 @@ object QueryServerProtocol : QueryProtocol(true) {
         registerHandler<QueryRequestC2SPacket> { session, packet ->
 
             session.send(QueryResponseS2CPacket(
-                KarbonQueryResponse(
-                    Text.of(TextColors.RED, "Hello", TextColors.GREEN, "World", TextColor.of(Color(0x117B5E)), " AYAYAYAY"),
-                    Favicon.load(URL("https://i.imgur.com/4DX7jzm.png")), null, KarbonMinecraftVersion(false,"1.16.1",736)
-                )
+                    KarbonQueryResponse(
+                            Text.of(TextColors.RED, "Hello", TextColors.GREEN, "World", TextColor.of(Color(0x117B5E)), " AYAYAYAY"),
+                            Favicon.load(URL("https://i.imgur.com/4DX7jzm.png")), null, KarbonMinecraftVersion(false, "1.16.1", 736)
+                    )
             ))
-            
+
         }
         registerHandler<QueryPingC2SPacket> { session, packet ->
             session.send(QueryPongS2CPacket(packet.startTime))

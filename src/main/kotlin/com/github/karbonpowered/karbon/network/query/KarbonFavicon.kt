@@ -1,8 +1,6 @@
 package com.github.karbonpowered.karbon.network.query
 
 import com.github.karbonpowered.api.network.query.Favicon
-import com.github.karbonpowered.api.registry.FactoryRegistry
-import com.github.karbonpowered.api.registry.provideFactory
 import io.netty.buffer.ByteBufInputStream
 import io.netty.buffer.ByteBufOutputStream
 import io.netty.buffer.Unpooled
@@ -15,7 +13,7 @@ import java.nio.file.Path
 import javax.imageio.ImageIO
 
 class KarbonFavicon(
-    override val image: BufferedImage
+        override val image: BufferedImage
 ) : Favicon {
     override fun toString(): String = Factory.encode(image)
 
