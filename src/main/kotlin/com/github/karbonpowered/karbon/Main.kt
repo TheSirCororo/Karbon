@@ -12,7 +12,7 @@ import com.github.karbonpowered.karbon.registry.KarbonCatalogRegistry
 import com.github.karbonpowered.karbon.registry.KarbonFactoryRegistry
 import com.github.karbonpowered.protocol.java.MinecraftSession
 import com.github.karbonpowered.protocol.java.ProtocolState
-import com.github.karbonpowered.protocol.java.data.SlotData
+import com.github.karbonpowered.protocol.java.data.Item
 import com.github.karbonpowered.protocol.java.s2c.game.GameContainerItemsS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameCustomPayloadS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameKeepAliveS2CPacket
@@ -48,7 +48,7 @@ fun main() {
                     val brand = GameCustomPayloadS2CPacket(CatalogKey.minecraft("brand"), "§bKarbonPowered§f".toByteArray())
                     val openContainer = GameOpenContainerS2CPacket(1, ContainerTypes.HOPPER, Text.of(TextColor.Companion.of(Color(13, 175, 16)), "My Menu"))
                     val containerItems = GameContainerItemsS2CPacket(1, arrayOf(
-                            SlotData(1), SlotData(123, 5)
+                            Item(1), Item(123, 5)
                     ))
                     sessions.forEach {
                         if (it is MinecraftSession && it.protocolState == ProtocolState.GAME) {

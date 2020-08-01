@@ -5,7 +5,7 @@ import com.github.karbonpowered.api.catalog.CatalogRegistry
 import com.github.karbonpowered.api.catalog.CatalogType
 import com.github.karbonpowered.api.entity.living.humanoid.player.gamemode.GameMode
 import com.github.karbonpowered.api.entity.living.humanoid.player.hand.HandType
-import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.ModelPart
+import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart
 import com.github.karbonpowered.api.item.inventory.ContainerType
 import com.github.karbonpowered.api.nbt.BinaryTagType
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
@@ -16,12 +16,14 @@ import com.github.karbonpowered.api.text.format.TextColor
 import com.github.karbonpowered.api.text.serializer.FormattingCodeTextSerializer
 import com.github.karbonpowered.api.text.serializer.SafeTextSerializer
 import com.github.karbonpowered.api.text.serializer.TextSerializer
+import com.github.karbonpowered.api.world.difficulty.Difficulty
 import com.github.karbonpowered.karbon.entity.living.humanoid.player.gamemode.KarbonGameMode
 import com.github.karbonpowered.karbon.entity.living.humanoid.player.hand.KarbonHandType
-import com.github.karbonpowered.karbon.entity.living.humanoid.player.modelpart.KarbonModelPart
+import com.github.karbonpowered.karbon.entity.living.humanoid.player.modelpart.KarbonSkinPart
 import com.github.karbonpowered.karbon.item.inventory.KarbonContainerType
 import com.github.karbonpowered.karbon.text.chat.KarbonChatVisibility
 import com.github.karbonpowered.karbon.text.chat.KarbonMessagePosition
+import com.github.karbonpowered.karbon.world.difficulty.KarbonDifficulty
 import com.github.karbonpowered.text.format.KarbonTextColor
 import com.github.karbonpowered.text.serializer.KarbonFormattingCodeTextSerializer
 import com.github.karbonpowered.text.serializer.KarbonSafeTextSerializer
@@ -75,7 +77,8 @@ object KarbonCatalogRegistry : CatalogRegistry {
         register(ChatVisibility::class, KarbonChatVisibility.generate())
         register(BinaryTagType::class, KarbonBinaryTagType.generate())
         register(GameMode::class, KarbonGameMode.generate())
-        register(ModelPart::class, KarbonModelPart.generate())
+        register(Difficulty::class, KarbonDifficulty.generate())
+        register(SkinPart::class, KarbonSkinPart.generate())
         register(HandType::class, KarbonHandType.generate())
         register(ContainerType::class, KarbonContainerType.generate())
     }
