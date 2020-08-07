@@ -1,10 +1,10 @@
 package com.github.karbonpowered.karbon.item.inventory
 
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.item.inventory.ContainerType
 
 class KarbonContainerType(
-        override val key: CatalogKey
+        override val key: NamespacedKey
 ) : ContainerType {
     override fun hashCode(): Int = key.hashCode()
 
@@ -49,6 +49,6 @@ class KarbonContainerType(
                 create("STONECUTTER"),
         )
 
-        private fun create(name: String) = name.toUpperCase() to { KarbonContainerType(CatalogKey.minecraft(name.toLowerCase())) }
+        private fun create(name: String) = name.toUpperCase() to { KarbonContainerType(NamespacedKey.minecraft(name.toLowerCase())) }
     }
 }

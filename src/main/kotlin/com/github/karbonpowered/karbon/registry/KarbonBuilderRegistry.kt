@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.registry
 
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.nbt.BinaryTag
 import com.github.karbonpowered.api.nbt.CompoundBinaryTag
 import com.github.karbonpowered.api.nbt.ListBinaryTag
@@ -9,7 +9,7 @@ import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.UnknownTypeException
 import com.github.karbonpowered.api.text.LiteralText
 import com.github.karbonpowered.commons.builder.ResettableBuilder
-import com.github.karbonpowered.karbon.catalog.KarbonCatalogKey
+import com.github.karbonpowered.karbon.catalog.KarbonNamespacedKey
 import com.github.karbonpowered.text.KarbonLiteralText
 import com.karbonpowered.nbt.CompoundTagBuilder
 import com.karbonpowered.nbt.KarbonListBinaryTag
@@ -37,7 +37,7 @@ object KarbonBuilderRegistry : BuilderRegistry {
 
     @OptIn(ExperimentalTime::class)
     fun registerDefaultBuilders() = measureTime {
-        registerBuilder(CatalogKey.Builder::class) { KarbonCatalogKey.Builder() }
+        registerBuilder(NamespacedKey.Builder::class) { KarbonNamespacedKey.Builder() }
         registerText()
         registerNbt()
     }.also {

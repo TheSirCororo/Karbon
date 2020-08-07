@@ -1,11 +1,11 @@
 package com.github.karbonpowered.karbon.catalog
 
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 
-data class KarbonCatalogKey(
+data class KarbonNamespacedKey(
         override val namespace: String,
         override val value: String
-) : CatalogKey {
+) : NamespacedKey {
     private val hashCode: Int by lazy {
         var result = namespace.hashCode()
         result = 31 * result + value.hashCode()
@@ -14,7 +14,7 @@ data class KarbonCatalogKey(
 
     override fun formatted(): String = "$namespace:$value"
 
-    override fun compareTo(other: CatalogKey): Int = formatted().compareTo(other.formatted())
+    override fun compareTo(other: NamespacedKey): Int = formatted().compareTo(other.formatted())
 
     override fun hashCode(): Int = hashCode
 
@@ -22,7 +22,7 @@ data class KarbonCatalogKey(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as KarbonCatalogKey
+        other as KarbonNamespacedKey
 
         if (namespace != other.namespace) return false
         if (value != other.value) return false
@@ -33,9 +33,9 @@ data class KarbonCatalogKey(
     class Builder(
             override var namespace: String = "",
             override var value: String = ""
-    ) : CatalogKey.Builder {
-        override fun build(): CatalogKey = KarbonCatalogKey(namespace, value)
+    ) : NamespacedKey.Builder {
+        override fun build(): NamespacedKey = KarbonNamespacedKey(namespace, value)
 
-        override fun reset(): CatalogKey.Builder = Builder()
+        override fun reset(): NamespacedKey.Builder = Builder()
     }
 }

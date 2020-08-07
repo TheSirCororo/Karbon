@@ -1,7 +1,7 @@
 package com.github.karbonpowered.karbon
 
 import com.github.karbonpowered.api.Karbon
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.item.inventory.ContainerTypes
 import com.github.karbonpowered.api.nbt.CompoundBinaryTag
 import com.github.karbonpowered.api.text.Text
@@ -45,7 +45,7 @@ fun main() {
             launch {
                 while (true) {
                     delay(100)
-                    val brand = GameCustomPayloadS2CPacket(CatalogKey.minecraft("brand"), "§bKarbonPowered§f".toByteArray())
+                    val brand = GameCustomPayloadS2CPacket(NamespacedKey.minecraft("brand"), "§bKarbonPowered§f".toByteArray())
                     val openContainer = GameOpenContainerS2CPacket(1, ContainerTypes.HOPPER, Text.of(TextColor.Companion.of(Color(13, 175, 16)), "My Menu"))
                     val containerItems = GameContainerItemsS2CPacket(1, arrayOf(
                             Item(1), Item(123, 5)

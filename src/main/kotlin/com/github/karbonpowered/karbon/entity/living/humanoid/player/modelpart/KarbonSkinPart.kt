@@ -1,12 +1,12 @@
 package com.github.karbonpowered.karbon.entity.living.humanoid.player.modelpart
 
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart
 import com.github.karbonpowered.api.text.translation.Translation
 import com.github.karbonpowered.api.text.translation.TranslationRegistry
 
 class KarbonSkinPart(
-        override val key: CatalogKey,
+        override val key: NamespacedKey,
         override val translation: Translation
 ) : SkinPart {
     override fun hashCode(): Int = key.hashCode()
@@ -22,17 +22,17 @@ class KarbonSkinPart(
         return true
     }
 
-    override fun toString(): String = "ModelPart(key=$key)"
+    override fun toString(): String = "SkinPart(key=$key)"
 
     companion object {
         fun generate() = sequenceOf(
-                "CAPE" to { KarbonSkinPart(CatalogKey.minecraft("cape"), TranslationRegistry.translate("options.modelPart.cape")) },
-                "HAT" to { KarbonSkinPart(CatalogKey.minecraft("hat"), TranslationRegistry.translate("options.modelPart.hat")) },
-                "JACKET" to { KarbonSkinPart(CatalogKey.minecraft("jacket"), TranslationRegistry.translate("options.modelPart.jacket")) },
-                "LEFT_SLEEVE" to { KarbonSkinPart(CatalogKey.minecraft("left_sleeve"), TranslationRegistry.translate("options.modelPart.left_sleeve")) },
-                "RIGHT_SLEEVE" to { KarbonSkinPart(CatalogKey.minecraft("right_sleeve"), TranslationRegistry.translate("options.modelPart.right_sleeve")) },
-                "LEFT_PANTS_LEG" to { KarbonSkinPart(CatalogKey.minecraft("left_pants_leg"), TranslationRegistry.translate("options.modelPart.left_pants_leg")) },
-                "RIGHT_PANTS_LEG" to { KarbonSkinPart(CatalogKey.minecraft("right_pants_leg"), TranslationRegistry.translate("options.modelPart.right_pants_leg")) },
+                "CAPE" to { KarbonSkinPart(NamespacedKey.minecraft("cape"), TranslationRegistry.translate("options.modelPart.cape")) },
+                "HAT" to { KarbonSkinPart(NamespacedKey.minecraft("hat"), TranslationRegistry.translate("options.modelPart.hat")) },
+                "JACKET" to { KarbonSkinPart(NamespacedKey.minecraft("jacket"), TranslationRegistry.translate("options.modelPart.jacket")) },
+                "LEFT_SLEEVE" to { KarbonSkinPart(NamespacedKey.minecraft("left_sleeve"), TranslationRegistry.translate("options.modelPart.left_sleeve")) },
+                "RIGHT_SLEEVE" to { KarbonSkinPart(NamespacedKey.minecraft("right_sleeve"), TranslationRegistry.translate("options.modelPart.right_sleeve")) },
+                "LEFT_PANTS_LEG" to { KarbonSkinPart(NamespacedKey.minecraft("left_pants_leg"), TranslationRegistry.translate("options.modelPart.left_pants_leg")) },
+                "RIGHT_PANTS_LEG" to { KarbonSkinPart(NamespacedKey.minecraft("right_pants_leg"), TranslationRegistry.translate("options.modelPart.right_pants_leg")) },
         )
     }
 }

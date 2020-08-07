@@ -1,10 +1,10 @@
 package com.github.karbonpowered.karbon.text.chat
 
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.text.chat.MessagePosition
 
 class KarbonMessagePosition(
-        override val key: CatalogKey
+        override val key: NamespacedKey
 ) : MessagePosition {
     override fun hashCode(): Int = key.hashCode()
 
@@ -23,9 +23,9 @@ class KarbonMessagePosition(
 
     companion object {
         fun generate() = sequenceOf(
-                "ACTION_BAR" to { KarbonMessagePosition(CatalogKey.minecraft("action_bar")) },
-                "CHAT" to { KarbonMessagePosition(CatalogKey.minecraft("chat")) },
-                "SYSTEM" to { KarbonMessagePosition(CatalogKey.minecraft("system")) },
+                "ACTION_BAR" to { KarbonMessagePosition(NamespacedKey.minecraft("action_bar")) },
+                "CHAT" to { KarbonMessagePosition(NamespacedKey.minecraft("chat")) },
+                "SYSTEM" to { KarbonMessagePosition(NamespacedKey.minecraft("system")) },
         )
     }
 }

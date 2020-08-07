@@ -1,10 +1,10 @@
 package com.github.karbonpowered.karbon.world.difficulty
 
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.world.difficulty.Difficulty
 
 data class KarbonDifficulty(
-        override val key: CatalogKey
+        override val key: NamespacedKey
 ) : Difficulty {
     companion object {
         fun generate() = sequenceOf(
@@ -15,6 +15,6 @@ data class KarbonDifficulty(
         )
 
         private fun create(key: String) =
-                key.toUpperCase() to { KarbonDifficulty(CatalogKey.minecraft(key.toLowerCase())) }
+                key.toUpperCase() to { KarbonDifficulty(NamespacedKey.minecraft(key.toLowerCase())) }
     }
 }

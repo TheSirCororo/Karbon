@@ -14,7 +14,6 @@ object HandshakeServerProtocol : HandshakeProtocol(true) {
                 ProtocolState.LOGIN -> LoginServerProtocol
                 ProtocolState.GAME -> GameServerProtocol
             }
-            println("$session Handshaking")
         }
     }
 }

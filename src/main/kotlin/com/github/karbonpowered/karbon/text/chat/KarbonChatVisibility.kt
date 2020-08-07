@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.text.chat
 
-import com.github.karbonpowered.api.catalog.CatalogKey
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.text.chat.ChatVisibility
 import com.github.karbonpowered.api.text.chat.MessagePosition
 import com.github.karbonpowered.api.text.chat.MessagePositions
@@ -9,7 +9,7 @@ import com.github.karbonpowered.api.text.translation.TranslationRegistry
 import java.util.function.Function
 
 data class KarbonChatVisibility(
-        override val key: CatalogKey,
+        override val key: NamespacedKey,
         override val translation: Translation,
         val function: Function<MessagePosition, Boolean>
 ) : ChatVisibility {
@@ -30,9 +30,9 @@ data class KarbonChatVisibility(
 
     companion object {
         fun generate() = sequenceOf(
-                "FULL" to { KarbonChatVisibility(CatalogKey.minecraft("full"), TranslationRegistry.translate("options.chat.visibility.full")) { true } },
+                "FULL" to { KarbonChatVisibility(NamespacedKey.minecraft("full"), TranslationRegistry.translate("options.chat.visibility.full")) { true } },
                 "SYSTEM" to {
-                    KarbonChatVisibility(CatalogKey.minecraft("system"), TranslationRegistry.translate("options.chat.visibility.system")) {
+                    KarbonChatVisibility(NamespacedKey.minecraft("system"), TranslationRegistry.translate("options.chat.visibility.system")) {
                         when (it) {
                             MessagePositions.SYSTEM, MessagePositions.ACTION_BAR -> true
                             else -> false
@@ -40,7 +40,7 @@ data class KarbonChatVisibility(
                     }
                 },
                 "HIDDEN" to {
-                    KarbonChatVisibility(CatalogKey.minecraft("hidden"), TranslationRegistry.translate("options.chat.visibility.hidden")) {
+                    KarbonChatVisibility(NamespacedKey.minecraft("hidden"), TranslationRegistry.translate("options.chat.visibility.hidden")) {
                         when (it) {
                             MessagePositions.ACTION_BAR -> true
                             else -> false

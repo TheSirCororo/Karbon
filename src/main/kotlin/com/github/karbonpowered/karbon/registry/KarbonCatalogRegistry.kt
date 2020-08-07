@@ -1,8 +1,8 @@
 package com.github.karbonpowered.karbon.registry
 
-import com.github.karbonpowered.api.catalog.CatalogKey
 import com.github.karbonpowered.api.catalog.CatalogRegistry
 import com.github.karbonpowered.api.catalog.CatalogType
+import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.entity.living.humanoid.player.gamemode.GameMode
 import com.github.karbonpowered.api.entity.living.humanoid.player.hand.HandType
 import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart
@@ -45,7 +45,7 @@ object KarbonCatalogRegistry : CatalogRegistry {
         return catalogProvider as Supplier<E>
     }
 
-    override fun <T : CatalogType> get(typeClass: Class<T>, key: CatalogKey): T? = getAllOf(typeClass).filter { it.key == key }.findFirst().orElseGet { null }
+    override fun <T : CatalogType> get(typeClass: Class<T>, key: NamespacedKey): T? = getAllOf(typeClass).filter { it.key == key }.findFirst().orElseGet { null }
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : CatalogType> getAllOf(typeClass: Class<T>): Stream<T> = providers[typeClass]?.values?.stream()?.map { it.get() as T }
