@@ -55,7 +55,7 @@ object KarbonCatalogRegistry : CatalogRegistry {
 
     private fun <T : CatalogType, E : T> register(typeClass: KClass<T>, suggestedId: String, supplier: Supplier<E>) = register(typeClass.java, suggestedId, supplier)
     private fun <T : CatalogType, E : T> register(typeClass: Class<T>, suggestedId: String, supplier: Supplier<E>) = apply {
-        val catalogProviders = providers.getOrPut(typeClass) { HashMap() }
+        val catalogProviders = providers.getOrPut(typeClass) { LinkedHashMap() }
         if (catalogProviders.containsKey(suggestedId)) {
             throw DuplicateRegistrationException("Catalog '$typeClass' with id '$suggestedId' has already registered!")
         }
