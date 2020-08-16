@@ -3,7 +3,7 @@ package com.github.karbonpowered.karbon.text.chat
 import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.text.chat.MessagePosition
 
-class KarbonMessagePosition(
+data class KarbonMessagePosition(
         override val key: NamespacedKey
 ) : MessagePosition {
     override fun hashCode(): Int = key.hashCode()
