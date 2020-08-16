@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.world.difficulty
 
-import com.github.karbonpowered.api.catalog.NamespacedKey
+import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.world.difficulty.Difficulty
 
 data class KarbonDifficulty(

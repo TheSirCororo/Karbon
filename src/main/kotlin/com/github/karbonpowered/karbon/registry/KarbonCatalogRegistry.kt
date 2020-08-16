@@ -1,8 +1,8 @@
 package com.github.karbonpowered.karbon.registry
 
+import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.catalog.CatalogRegistry
 import com.github.karbonpowered.api.catalog.CatalogType
-import com.github.karbonpowered.api.catalog.NamespacedKey
 import com.github.karbonpowered.api.entity.living.humanoid.player.gamemode.GameMode
 import com.github.karbonpowered.api.entity.living.humanoid.player.hand.HandType
 import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart

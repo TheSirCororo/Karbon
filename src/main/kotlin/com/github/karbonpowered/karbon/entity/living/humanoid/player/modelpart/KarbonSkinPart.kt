@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.entity.living.humanoid.player.modelpart
 
-import com.github.karbonpowered.api.catalog.NamespacedKey
+import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart
 import com.github.karbonpowered.api.text.translation.Translation
 import com.github.karbonpowered.api.text.translation.TranslationRegistry

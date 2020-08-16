@@ -1,7 +1,7 @@
 package com.github.karbonpowered.karbon
 
 import com.github.karbonpowered.api.Karbon
-import com.github.karbonpowered.api.catalog.NamespacedKey
+import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.item.inventory.ContainerTypes
 import com.github.karbonpowered.api.nbt.CompoundBinaryTag
 import com.github.karbonpowered.api.text.Text

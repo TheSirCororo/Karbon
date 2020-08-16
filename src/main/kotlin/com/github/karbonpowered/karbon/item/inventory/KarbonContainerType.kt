@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.item.inventory
 
-import com.github.karbonpowered.api.catalog.NamespacedKey
+import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.item.inventory.ContainerType
 
 class KarbonContainerType(

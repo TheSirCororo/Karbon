@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.registry
 
-import com.github.karbonpowered.api.catalog.NamespacedKey
+import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.nbt.BinaryTag
 import com.github.karbonpowered.api.nbt.CompoundBinaryTag
 import com.github.karbonpowered.api.nbt.ListBinaryTag

@@ -1,23 +1,23 @@
 package com.github.karbonpowered.karbon
 
-import com.github.karbonpowered.karbon.network.protocol.server.HandshakeServerProtocol
 import com.github.karbonpowered.network.NetworkServer
-import com.github.karbonpowered.network.session.Session
+import com.github.karbonpowered.network.connection.ConnectionSide
 import com.github.karbonpowered.protocol.java.MinecraftSession
+import com.github.karbonpowered.protocol.java.protocol.HandshakeProtocol
 import java.net.InetSocketAddress
 
-class Server : NetworkServer() {
-    val _sessions = HashSet<Session>()
-    val sessions: Set<Session> get() = _sessions
+class Server : NetworkServer<MinecraftSession>() {
+    val _sessions = HashSet<MinecraftSession>()
+    override val sessions: Set<MinecraftSession> get() = _sessions
 
-    override fun newSession(channel: io.netty.channel.Channel): Session {
-        val session = MinecraftSession(channel, HandshakeServerProtocol)
+    override fun newSession(channel: io.netty.channel.Channel): MinecraftSession {
+        val session = MinecraftSession(channel, ConnectionSide.server(), HandshakeProtocol(true))
         _sessions.add(session)
         println("$session connected")
         return session
     }
 
-    override fun sessionInactivated(session: Session) {
+    override fun sessionInactivated(session: MinecraftSession) {
         _sessions.remove(session)
         println("$session inactivated")
     }

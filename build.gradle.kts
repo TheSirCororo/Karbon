@@ -10,8 +10,9 @@ repositories {
 }
 
 dependencies {
+    val coroutinesVersion: String by project
     val netty_version: String by project
-    val gson_version: String by project
+    val gsonVersion: String by project
     val commons_version: String by project
     val math_version: String by project
     val network_version: String by project
@@ -19,8 +20,10 @@ dependencies {
     val api_version: String by project
 
     api(kotlin("stdlib-jdk8"))
+    api("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", coroutinesVersion)
+
     api("io.netty", "netty-all", netty_version)
-    api("com.google.code.gson", "gson", gson_version)
+    api("com.google.code.gson", "gson", gsonVersion)
 
     api("com.github.karbonpowered", "commons", commons_version)
     api("com.github.karbonpowered", "math", math_version)
