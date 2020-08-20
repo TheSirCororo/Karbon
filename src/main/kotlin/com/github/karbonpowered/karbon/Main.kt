@@ -4,7 +4,6 @@ import com.github.karbonpowered.api.Karbon
 import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.item.inventory.ContainerTypes
 import com.github.karbonpowered.api.nbt.CompoundBinaryTag
-import com.github.karbonpowered.api.text.Text
 import com.github.karbonpowered.api.text.format.TextColor
 import com.github.karbonpowered.karbon.profile.KarbonGameProfileManager
 import com.github.karbonpowered.karbon.registry.KarbonBuilderRegistry
@@ -17,6 +16,8 @@ import com.github.karbonpowered.protocol.java.s2c.game.GameContainerItemsS2CPack
 import com.github.karbonpowered.protocol.java.s2c.game.GameCustomPayloadS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameKeepAliveS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameOpenContainerS2CPacket
+import com.github.karbonpowered.text.Text
+import com.github.karbonpowered.text.format.TextColor
 import com.github.karbonpowered.text.translation.KarbonTranslationRegistry
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -24,7 +25,6 @@ import kotlinx.coroutines.launch
 import java.awt.Color
 import java.net.InetSocketAddress
 import kotlin.random.Random
-
 
 fun main() {
     Karbon.initialize()

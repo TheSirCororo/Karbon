@@ -7,13 +7,13 @@ import com.github.karbonpowered.api.nbt.ListBinaryTag
 import com.github.karbonpowered.api.registry.BuilderRegistry
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.UnknownTypeException
-import com.github.karbonpowered.api.text.LiteralText
-import com.github.karbonpowered.api.text.TranslatableText
-import com.github.karbonpowered.api.text.action.ClickAction
 import com.github.karbonpowered.commons.builder.ResettableBuilder
 import com.github.karbonpowered.karbon.catalog.KarbonNamespacedKey
 import com.github.karbonpowered.text.KarbonLiteralText
 import com.github.karbonpowered.text.KarbonTranslatableText
+import com.github.karbonpowered.text.LiteralText
+import com.github.karbonpowered.text.TranslatableText
+import com.github.karbonpowered.text.action.ClickAction
 import com.github.karbonpowered.text.action.KarbonClickAction
 import com.karbonpowered.nbt.CompoundTagBuilder
 import com.karbonpowered.nbt.KarbonListBinaryTag
