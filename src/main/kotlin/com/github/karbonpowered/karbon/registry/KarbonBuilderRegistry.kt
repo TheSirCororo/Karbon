@@ -7,14 +7,8 @@ import com.github.karbonpowered.api.nbt.ListBinaryTag
 import com.github.karbonpowered.api.registry.BuilderRegistry
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.UnknownTypeException
-import com.github.karbonpowered.api.text.LiteralText
-import com.github.karbonpowered.api.text.TranslatableText
-import com.github.karbonpowered.api.text.action.ClickAction
 import com.github.karbonpowered.commons.builder.ResettableBuilder
 import com.github.karbonpowered.karbon.catalog.KarbonNamespacedKey
-import com.github.karbonpowered.text.KarbonLiteralText
-import com.github.karbonpowered.text.KarbonTranslatableText
-import com.github.karbonpowered.text.action.KarbonClickAction
 import com.karbonpowered.nbt.CompoundTagBuilder
 import com.karbonpowered.nbt.KarbonListBinaryTag
 import java.util.concurrent.ConcurrentHashMap
@@ -22,8 +16,12 @@ import kotlin.reflect.KClass
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
 
-object KarbonBuilderRegistry : BuilderRegistry {
+class KarbonBuilderRegistry : BuilderRegistry {
     private val builders = ConcurrentHashMap<Class<*>, () -> Any>()
+
+    init {
+        registerDefaultBuilders()
+    }
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ResettableBuilder<*, in T>> provideBuilder(builderClass: Class<T>): T =
@@ -42,16 +40,9 @@ object KarbonBuilderRegistry : BuilderRegistry {
     @OptIn(ExperimentalTime::class)
     fun registerDefaultBuilders() = measureTime {
         registerBuilder(NamespacedKey.Builder::class) { KarbonNamespacedKey.Builder() }
-        registerText()
         registerNbt()
     }.also {
         println("[Karbon] Registered ${builders.size} builders in $it")
-    }
-
-    private fun registerText() {
-        registerBuilder(LiteralText.Builder::class) { KarbonLiteralText.Builder() }
-        registerBuilder(TranslatableText.Builder::class) { KarbonTranslatableText.Builder() }
-        registerBuilder(ClickAction.OpenUrl.Builder::class) { KarbonClickAction.OpenUrl.Builder() }
     }
 
     private fun registerNbt() {

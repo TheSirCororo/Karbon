@@ -19,6 +19,8 @@ allprojects {
         val network_version: String by project
         val protocol_version: String by project
         val api_version: String by project
+        val karbonTranslationVersion: String by project
+        val karbonTextVersion: String by project
 
         api(kotlin("stdlib-jdk8"))
         api("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", coroutinesVersion)
@@ -31,6 +33,8 @@ allprojects {
         api("com.github.karbonpowered", "network", network_version)
         api("com.github.karbonpowered", "protocol", protocol_version)
         api("com.github.karbonpowered", "karbonpowered-api", api_version)
+        api("com.github.karbonpowered", "translation", karbonTranslationVersion)
+        api("com.github.karbonpowered", "text", karbonTextVersion)
         api("com.github.Steveice10:MCProtocolLib:3e33a3c81e")
     }
 
@@ -38,7 +42,8 @@ allprojects {
         compileKotlin {
             kotlinOptions.jvmTarget = "14"
             kotlinOptions.freeCompilerArgs = listOf(
-                    "-Xopt-in=kotlin.RequiresOptIn"
+                    "-Xopt-in=kotlin.RequiresOptIn",
+                    "-Xjvm-default=all"
             )
         }
     }

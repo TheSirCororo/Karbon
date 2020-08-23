@@ -2,8 +2,8 @@ package com.github.karbonpowered.karbon.entity.living.humanoid.player.gamemode
 
 import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.entity.living.humanoid.player.gamemode.GameMode
-import com.github.karbonpowered.api.text.translation.Translation
-import com.github.karbonpowered.api.text.translation.TranslationRegistry
+import com.karbonpowered.translation.Translation
+import com.karbonpowered.translation.TranslationRegistry
 
 data class KarbonGameMode(
         override val key: NamespacedKey,

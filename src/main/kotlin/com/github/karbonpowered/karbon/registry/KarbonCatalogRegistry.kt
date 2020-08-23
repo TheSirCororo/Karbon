@@ -3,6 +3,8 @@ package com.github.karbonpowered.karbon.registry
 import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.catalog.CatalogRegistry
 import com.github.karbonpowered.api.catalog.CatalogType
+import com.github.karbonpowered.api.chat.ChatVisibility
+import com.github.karbonpowered.api.chat.MessagePosition
 import com.github.karbonpowered.api.entity.living.humanoid.player.gamemode.GameMode
 import com.github.karbonpowered.api.entity.living.humanoid.player.hand.HandType
 import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart
@@ -10,12 +12,6 @@ import com.github.karbonpowered.api.item.inventory.ContainerType
 import com.github.karbonpowered.api.nbt.BinaryTagType
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.UnknownTypeException
-import com.github.karbonpowered.api.text.chat.ChatVisibility
-import com.github.karbonpowered.api.text.chat.MessagePosition
-import com.github.karbonpowered.api.text.format.TextColor
-import com.github.karbonpowered.api.text.serializer.FormattingCodeTextSerializer
-import com.github.karbonpowered.api.text.serializer.SafeTextSerializer
-import com.github.karbonpowered.api.text.serializer.TextSerializer
 import com.github.karbonpowered.api.world.difficulty.Difficulty
 import com.github.karbonpowered.karbon.entity.living.humanoid.player.gamemode.KarbonGameMode
 import com.github.karbonpowered.karbon.entity.living.humanoid.player.hand.KarbonHandType
@@ -24,17 +20,17 @@ import com.github.karbonpowered.karbon.item.inventory.KarbonContainerType
 import com.github.karbonpowered.karbon.text.chat.KarbonChatVisibility
 import com.github.karbonpowered.karbon.text.chat.KarbonMessagePosition
 import com.github.karbonpowered.karbon.world.difficulty.KarbonDifficulty
-import com.github.karbonpowered.text.format.KarbonTextColor
-import com.github.karbonpowered.text.serializer.KarbonFormattingCodeTextSerializer
-import com.github.karbonpowered.text.serializer.KarbonSafeTextSerializer
-import com.github.karbonpowered.text.serializer.KarbonTextSerializer
 import com.karbonpowered.nbt.KarbonBinaryTagType
 import java.util.function.Supplier
 import java.util.stream.Stream
 import kotlin.reflect.KClass
 
-object KarbonCatalogRegistry : CatalogRegistry {
+class KarbonCatalogRegistry : CatalogRegistry {
     val providers = HashMap<Class<out CatalogType>, MutableMap<String, Supplier<out CatalogType>>>()
+
+    init {
+        registerDefaultCatalogs()
+    }
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : CatalogType, E : T> getProvider(typeClass: Class<T>, suggestedId: String): Supplier<E> {
@@ -69,10 +65,6 @@ object KarbonCatalogRegistry : CatalogRegistry {
     }
 
     fun registerDefaultCatalogs() {
-        register(SafeTextSerializer::class, "PLAIN") { KarbonSafeTextSerializer }
-        register(FormattingCodeTextSerializer::class, "FORMATTING_CODE") { KarbonFormattingCodeTextSerializer('&') }
-        register(TextSerializer::class, "JSON") { KarbonTextSerializer }
-        register(TextColor::class, KarbonTextColor.generate())
         register(MessagePosition::class, KarbonMessagePosition.generate())
         register(ChatVisibility::class, KarbonChatVisibility.generate())
         register(BinaryTagType::class, KarbonBinaryTagType.generate())

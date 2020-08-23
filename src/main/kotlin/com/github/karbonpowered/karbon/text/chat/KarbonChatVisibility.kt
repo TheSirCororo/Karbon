@@ -1,11 +1,11 @@
 package com.github.karbonpowered.karbon.text.chat
 
 import com.github.karbonpowered.api.NamespacedKey
-import com.github.karbonpowered.api.text.chat.ChatVisibility
-import com.github.karbonpowered.api.text.chat.MessagePosition
-import com.github.karbonpowered.api.text.chat.MessagePositions
-import com.github.karbonpowered.api.text.translation.Translation
-import com.github.karbonpowered.api.text.translation.TranslationRegistry
+import com.github.karbonpowered.api.chat.ChatVisibility
+import com.github.karbonpowered.api.chat.MessagePosition
+import com.github.karbonpowered.api.chat.MessagePositions
+import com.karbonpowered.translation.Translation
+import com.karbonpowered.translation.TranslationRegistry
 import java.util.function.Function
 
 data class KarbonChatVisibility(

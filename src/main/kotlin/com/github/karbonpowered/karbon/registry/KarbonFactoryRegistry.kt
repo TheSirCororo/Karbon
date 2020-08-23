@@ -5,23 +5,26 @@ import com.github.karbonpowered.api.network.query.Favicon
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.FactoryRegistry
 import com.github.karbonpowered.api.registry.UnknownTypeException
-import com.github.karbonpowered.api.text.Text
-import com.github.karbonpowered.api.text.format.TextColor
-import com.github.karbonpowered.api.text.format.TextFormat
-import com.github.karbonpowered.api.text.format.TextStyle
+import com.github.karbonpowered.text.Text
+import com.github.karbonpowered.text.format.TextColor
+import com.github.karbonpowered.text.format.TextFormat
+import com.github.karbonpowered.text.format.TextStyle
 import com.github.karbonpowered.karbon.network.query.KarbonFavicon
-import com.github.karbonpowered.text.KarbonTextFactory
-import com.github.karbonpowered.text.format.KarbonTextColor
-import com.github.karbonpowered.text.format.KarbonTextFormat
-import com.github.karbonpowered.text.format.KarbonTextStyle
+import com.github.karbonpowered.text.karbon.KarbonTextFactory
+import com.github.karbonpowered.text.karbon.format.KarbonTextColor
+import com.github.karbonpowered.text.karbon.format.KarbonTextStyle
 import com.karbonpowered.nbt.*
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
 
-object KarbonFactoryRegistry : FactoryRegistry {
+class KarbonFactoryRegistry : FactoryRegistry {
     private val factories = ConcurrentHashMap<Class<*>, Any>()
+
+    init {
+        registerDefaultFactories()
+    }
 
     override fun <T : Any> provideFactory(clazz: KClass<T>): T = provideFactory(clazz.java)
 
@@ -40,22 +43,13 @@ object KarbonFactoryRegistry : FactoryRegistry {
 
     @OptIn(ExperimentalTime::class)
     fun registerDefaultFactories() = measureTime {
-        registerText()
         registerNbt()
         registerFactory(Favicon.Factory::class, KarbonFavicon.Factory)
     }.also {
         println("[Karbon] Registered ${factories.size} factories in $it")
     }
 
-    private fun registerText() {
-        registerFactory(TextStyle.Factory::class, KarbonTextStyle.Factory)
-        registerFactory(TextFormat.Factory::class, KarbonTextFormat.Factory)
-        registerFactory(TextColor.Factory::class, KarbonTextColor.Factory)
-        registerFactory(Text.Factory::class, KarbonTextFactory)
-    }
-
     private fun registerNbt() {
-        registerFactory(EndBinaryTag.Factory::class, KarbonEndBinaryTag)
         registerFactory(ByteBinaryTag.Factory::class, KarbonByteBinaryTag.Factory)
         registerFactory(ShortBinaryTag.Factory::class, KarbonShortBinaryTag.Factory)
         registerFactory(IntBinaryTag.Factory::class, KarbonIntBinaryTag.Factory)

@@ -1,7 +1,7 @@
 package com.github.karbonpowered.karbon.text.chat
 
 import com.github.karbonpowered.api.NamespacedKey
-import com.github.karbonpowered.api.text.chat.MessagePosition
+import com.github.karbonpowered.api.chat.MessagePosition
 
 data class KarbonMessagePosition(
         override val key: NamespacedKey
