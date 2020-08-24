@@ -12,30 +12,18 @@ allprojects {
 
     dependencies {
         val coroutinesVersion: String by project
-        val netty_version: String by project
+        val nettyVersion: String by project
         val gsonVersion: String by project
-        val commons_version: String by project
-        val math_version: String by project
-        val network_version: String by project
-        val protocol_version: String by project
-        val api_version: String by project
-        val karbonTranslationVersion: String by project
-        val karbonTextVersion: String by project
 
         api(kotlin("stdlib-jdk8"))
         api("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", coroutinesVersion)
 
-        api("io.netty", "netty-all", netty_version)
+        api("io.netty", "netty-all", nettyVersion)
         api("com.google.code.gson", "gson", gsonVersion)
 
-        api("com.github.KarbonPowered", "commons", commons_version)
-        api("com.github.KarbonPowered", "math", math_version)
-        api("com.github.KarbonPowered", "network", network_version)
-        api("com.github.KarbonPowered", "protocol", protocol_version)
-        api("com.github.KarbonPowered", "karbonpowered-api", api_version)
-        api("com.github.KarbonPowered", "translation", karbonTranslationVersion)
-        api("com.github.KarbonPowered.text", "text", karbonTextVersion)
-        api("com.github.Steveice10:MCProtocolLib:3e33a3c81e")
+        subprojects {
+            api(this)
+        }
     }
 
     tasks {

@@ -1,0 +1,24 @@
+[submodule "KarbonPowered-Commons"]
+	path = KarbonPowered-Commons
+	url = git@github.com:KarbonPowered/commons.git
+[submodule "KarbonPowered-API"]
+	path = KarbonPowered-API
+	url = git@github.com:KarbonPowered/karbonpowered-api.git
+[submodule "KarbonPowered-Network"]
+	path = KarbonPowered-Network
+	url = git@github.com:KarbonPowered/network.git
+[submodule "KarbonPowered-Text"]
+	path = KarbonPowered-Text
+	url = git@github.com:KarbonPowered/text.git
+[submodule "KarbonPowered-Translation"]
+	path = KarbonPowered-Translation
+	url = git@github.com:KarbonPowered/translation.git
+[submodule "KarbonPowered-Protocol"]
+	path = KarbonPowered-Protocol
+	url = git@github.com:KarbonPowered/protocol.git
+[submodule "KarbonPowered-NBT"]
+	path = KarbonPowered-NBT
+	url = git@github.com:KarbonPowered/nbt.git
+[submodule "KarbonPowered-Math"]
+	path = KarbonPowered-Math
+	url = git@github.com:KarbonPowered/math.git
