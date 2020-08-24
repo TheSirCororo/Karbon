@@ -28,13 +28,13 @@ allprojects {
         api("io.netty", "netty-all", netty_version)
         api("com.google.code.gson", "gson", gsonVersion)
 
-        api("com.github.karbonpowered", "commons", commons_version)
-        api("com.github.karbonpowered", "math", math_version)
-        api("com.github.karbonpowered", "network", network_version)
-        api("com.github.karbonpowered", "protocol", protocol_version)
-        api("com.github.karbonpowered", "karbonpowered-api", api_version)
-        api("com.github.karbonpowered", "translation", karbonTranslationVersion)
-        api("com.github.karbonpowered", "text", karbonTextVersion)
+        api("com.github.KarbonPowered", "commons", commons_version)
+        api("com.github.KarbonPowered", "math", math_version)
+        api("com.github.KarbonPowered", "network", network_version)
+        api("com.github.KarbonPowered", "protocol", protocol_version)
+        api("com.github.KarbonPowered", "karbonpowered-api", api_version)
+        api("com.github.KarbonPowered", "translation", karbonTranslationVersion)
+        api("com.github.KarbonPowered.text", "text", karbonTextVersion)
         api("com.github.Steveice10:MCProtocolLib:3e33a3c81e")
     }
 
