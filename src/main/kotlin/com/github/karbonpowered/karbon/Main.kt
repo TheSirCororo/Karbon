@@ -1,29 +1,19 @@
 package com.github.karbonpowered.karbon
 
-import com.github.karbonpowered.api.Karbon
 import com.github.karbonpowered.api.NamespacedKey
-import com.github.karbonpowered.api.catalog.CatalogRegistry
 import com.github.karbonpowered.api.item.inventory.ContainerTypes
 import com.github.karbonpowered.api.nbt.CompoundBinaryTag
-import com.github.karbonpowered.api.registry.BuilderRegistry
-import com.github.karbonpowered.api.registry.FactoryRegistry
-import com.github.karbonpowered.text.Text
-import com.github.karbonpowered.text.format.TextColor
-import com.github.karbonpowered.karbon.profile.KarbonGameProfileManager
-import com.github.karbonpowered.karbon.registry.KarbonBuilderRegistry
-import com.github.karbonpowered.karbon.registry.KarbonCatalogRegistry
-import com.github.karbonpowered.karbon.registry.KarbonFactoryRegistry
-import com.github.karbonpowered.protocol.java.MinecraftSession
 import com.github.karbonpowered.protocol.java.ProtocolState
 import com.github.karbonpowered.protocol.java.data.Item
 import com.github.karbonpowered.protocol.java.s2c.game.GameContainerItemsS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameCustomPayloadS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameKeepAliveS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameOpenContainerS2CPacket
+import com.github.karbonpowered.text.Text
+import com.github.karbonpowered.text.format.TextColor
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.awt.Color
 import java.net.InetSocketAddress
 import kotlin.random.Random
 
@@ -37,7 +27,7 @@ fun main() {
                     delay(10000)
                     val keepAlive = GameKeepAliveS2CPacket(Random.nextLong())
                     sessions.forEach {
-                        if ( it.protocolState == ProtocolState.GAME) {
+                        if (it.protocolState == ProtocolState.GAME) {
                             it.send(keepAlive)
                         }
                     }

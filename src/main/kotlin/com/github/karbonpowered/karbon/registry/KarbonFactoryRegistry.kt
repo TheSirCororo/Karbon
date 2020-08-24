@@ -5,14 +5,7 @@ import com.github.karbonpowered.api.network.query.Favicon
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.FactoryRegistry
 import com.github.karbonpowered.api.registry.UnknownTypeException
-import com.github.karbonpowered.text.Text
-import com.github.karbonpowered.text.format.TextColor
-import com.github.karbonpowered.text.format.TextFormat
-import com.github.karbonpowered.text.format.TextStyle
 import com.github.karbonpowered.karbon.network.query.KarbonFavicon
-import com.github.karbonpowered.text.karbon.KarbonTextFactory
-import com.github.karbonpowered.text.karbon.format.KarbonTextColor
-import com.github.karbonpowered.text.karbon.format.KarbonTextStyle
 import com.karbonpowered.nbt.*
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
