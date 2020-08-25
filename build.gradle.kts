@@ -66,8 +66,10 @@ karbonPoweredProtocol.allprojects {
     }
 }
 
-karbonPoweredAdapter.dependencies {
-    api(karbonPoweredApi)
+karbonPoweredAdapter.allprojects {
+    dependencies {
+        api(karbonPoweredApi)
+    }
 }
 
 project(karbonPoweredText.absoluteProjectPath("text-renderer-translatable")) {
