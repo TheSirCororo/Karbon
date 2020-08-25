@@ -22,3 +22,6 @@
 [submodule "KarbonPowered-Math"]
 	path = KarbonPowered-Math
 	url = git@github.com:KarbonPowered/math.git
+[submodule "KarbonPowered-Adapter"]
+	path = KarbonPowered-Adapter
+	url = git@github.com:KarbonPowered/adapter.git

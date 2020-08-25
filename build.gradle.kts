@@ -45,6 +45,7 @@ val karbonPoweredText = project(absoluteProjectPath("KarbonPowered-Text"))
 val karbonPoweredApi = project(absoluteProjectPath("KarbonPowered-API"))
 val karbonPoweredNbt = project(absoluteProjectPath("KarbonPowered-NBT"))
 val karbonPoweredProtocol = project(absoluteProjectPath("KarbonPowered-Protocol"))
+val karbonPoweredAdapter = project(absoluteProjectPath("KarbonPowered-Adapter"))
 
 karbonPoweredApi.dependencies {
     api(karbonPoweredCommons)
@@ -63,6 +64,10 @@ karbonPoweredProtocol.allprojects {
         api(karbonPoweredApi)
         api(karbonPoweredNbt)
     }
+}
+
+karbonPoweredAdapter.dependencies {
+    api(karbonPoweredApi)
 }
 
 project(karbonPoweredText.absoluteProjectPath("text-renderer-translatable")) {
