@@ -65,6 +65,12 @@ karbonPoweredProtocol.allprojects {
     }
 }
 
+project(karbonPoweredText.absoluteProjectPath("text-renderer-translatable")) {
+    dependencies {
+        api(karbonPoweredTranslation)
+    }
+}
+
 // add KarbonPowered-Commons to all
 subprojects {
     if (this != karbonPoweredCommons) {
