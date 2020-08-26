@@ -4,6 +4,9 @@ plugins {
 }
 
 allprojects {
+    group = "com.github.karbonpowered"
+    version = "0.0.1"
+
     repositories {
         jcenter()
         maven("https://dl.bintray.com/kotlin/kotlin-eap")
