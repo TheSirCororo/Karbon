@@ -9,8 +9,8 @@ import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.UnknownTypeException
 import com.github.karbonpowered.commons.builder.ResettableBuilder
 import com.github.karbonpowered.karbon.catalog.KarbonNamespacedKey
-import com.karbonpowered.nbt.CompoundTagBuilder
-import com.karbonpowered.nbt.KarbonListBinaryTag
+import com.github.karbonpowered.nbt.CompoundTagBuilder
+import com.github.karbonpowered.nbt.KarbonListBinaryTag
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
 import kotlin.time.ExperimentalTime

@@ -20,7 +20,7 @@ import com.github.karbonpowered.karbon.item.inventory.KarbonContainerType
 import com.github.karbonpowered.karbon.text.chat.KarbonChatVisibility
 import com.github.karbonpowered.karbon.text.chat.KarbonMessagePosition
 import com.github.karbonpowered.karbon.world.difficulty.KarbonDifficulty
-import com.karbonpowered.nbt.KarbonBinaryTagType
+import com.github.karbonpowered.nbt.KarbonBinaryTagType
 import java.util.function.Supplier
 import java.util.stream.Stream
 import kotlin.reflect.KClass

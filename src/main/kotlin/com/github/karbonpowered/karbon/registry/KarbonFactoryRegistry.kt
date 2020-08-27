@@ -6,7 +6,7 @@ import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.FactoryRegistry
 import com.github.karbonpowered.api.registry.UnknownTypeException
 import com.github.karbonpowered.karbon.network.query.KarbonFavicon
-import com.karbonpowered.nbt.*
+import com.github.karbonpowered.nbt.*
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
 import kotlin.time.ExperimentalTime

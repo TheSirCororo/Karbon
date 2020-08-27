@@ -4,8 +4,8 @@ import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.chat.ChatVisibility
 import com.github.karbonpowered.api.chat.MessagePosition
 import com.github.karbonpowered.api.chat.MessagePositions
-import com.karbonpowered.translation.Translation
-import com.karbonpowered.translation.TranslationRegistry
+import com.github.karbonpowered.translation.Translation
+import com.github.karbonpowered.translation.TranslationRegistry
 import java.util.function.Function
 
 data class KarbonChatVisibility(
