@@ -54,8 +54,8 @@ karbonPoweredApi.dependencies {
     api(karbonPoweredCommons)
     api(karbonPoweredMath)
     api(karbonPoweredNetwork)
-    api(karbonPoweredTranslation)
-    api(karbonPoweredText)
+    api(karbonPoweredTranslation.project("translation-api"))
+    api(karbonPoweredText.project("text-api"))
 }
 
 karbonPoweredNbt.dependencies {
@@ -69,15 +69,28 @@ karbonPoweredProtocol.allprojects {
     }
 }
 
-karbonPoweredAdapter.allprojects {
+karbonPoweredAdapter.project("adapter-bukkit") {
     dependencies {
         api(karbonPoweredApi)
+        api(karbonPoweredText.project("text-serializer-bungee"))
+    }
+}
+karbonPoweredAdapter.project("adapter-bungee") {
+    dependencies {
+        api(karbonPoweredApi)
+        api(karbonPoweredText.project("text-serializer-bungee"))
+    }
+}
+karbonPoweredAdapter.project("adapter-velocity") {
+    dependencies {
+        api(karbonPoweredApi)
+        api(karbonPoweredText.project("text-serializer-adventure"))
     }
 }
 
-project(karbonPoweredText.absoluteProjectPath("text-renderer-translatable")) {
+karbonPoweredText.project("text-renderer-translatable") {
     dependencies {
-        api(karbonPoweredTranslation)
+        api(karbonPoweredTranslation.project("translation-api"))
     }
 }
 
