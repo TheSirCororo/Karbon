@@ -91,6 +91,7 @@ karbonPoweredAdapter.project("adapter-velocity") {
 karbonPoweredText.project("text-renderer-translatable") {
     dependencies {
         api(karbonPoweredTranslation.project("translation-api"))
+        testImplementation(karbonPoweredTranslation)
     }
 }
 
