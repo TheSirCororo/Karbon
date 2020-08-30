@@ -16,4 +16,5 @@ build:
     paths:
       - .gradle/
   script:
+    - chmod +x gradlew
     - ./gradlew build
