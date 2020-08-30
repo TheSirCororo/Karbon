@@ -58,7 +58,7 @@ allprojects {
             }
         }
         repositories {
-            maven("https://repo.justmc.ru") {
+            maven("https://gitlab.com/api/v4/projects/karbonpowered%2Fkarbon/packages/maven") {
                 credentials(HttpHeaderCredentials::class) {
                     name = "Job-Token"
                     value = System.getenv("CI_JOB_TOKEN")
