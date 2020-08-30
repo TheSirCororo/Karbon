@@ -11,6 +11,7 @@ allprojects {
     version = "0.0.1-SNAPSHOT"
 
     repositories {
+        mavenLocal()
         jcenter()
         maven("https://gitlab.com/XjCyan1de/maven-repo/-/raw/master/")
         maven("https://jitpack.io/")
@@ -33,6 +34,9 @@ allprojects {
     }
 
     tasks {
+        jar {
+            finalizedBy("publishToMavenLocal")
+        }
         compileKotlin {
             kotlinOptions.jvmTarget = "1.8"
             kotlinOptions.freeCompilerArgs = listOf(
