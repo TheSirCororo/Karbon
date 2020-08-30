@@ -5,7 +5,7 @@ plugins {
 
 allprojects {
     group = "com.github.karbonpowered"
-    version = "0.0.1"
+    version = "0.0.1-SNAPSHOT"
 
     repositories {
         jcenter()
@@ -31,11 +31,42 @@ allprojects {
 
     tasks {
         compileKotlin {
-            kotlinOptions.jvmTarget = "14"
+            kotlinOptions.jvmTarget = "1.8"
             kotlinOptions.freeCompilerArgs = listOf(
                     "-Xopt-in=kotlin.RequiresOptIn",
                     "-Xjvm-default=all"
             )
+        }
+    }
+
+    tasks.jar {
+        if (System.getenv("CI_JOB_TOKEN") != null) {
+            finalizedBy("publish")
+        }
+    }
+
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = this@allprojects.group.toString()
+                artifactId = this@allprojects.name
+                version = this@allprojects.version.toString()
+
+                println("Create POM: $groupId:$artifactId:$version")
+
+                from(components["java"])
+            }
+        }
+        repositories {
+            maven("https://repo.justmc.ru/") {
+                credentials(HttpHeaderCredentials::class) {
+                    name = "Job-Token"
+                    value = System.getenv("CI_JOB_TOKEN")
+                }
+                authentication {
+                    create<HttpHeaderAuthentication>("header")
+                }
+            }
         }
     }
 }
