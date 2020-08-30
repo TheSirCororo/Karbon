@@ -14,6 +14,7 @@ allprojects {
         mavenLocal()
         jcenter()
         maven("https://gitlab.com/XjCyan1de/maven-repo/-/raw/master/")
+        maven("https://oss.sonatype.org/content/repositories/snapshots/")
         maven("https://jitpack.io/")
     }
 
@@ -70,8 +71,6 @@ allprojects {
         }
     }
 }
-
-println(absoluteProjectPath("commons"))
 
 val karbonPoweredCommons = project(absoluteProjectPath("commons"))
 val karbonPoweredMath = project(absoluteProjectPath("math"))
