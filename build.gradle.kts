@@ -42,12 +42,6 @@ allprojects {
         }
     }
 
-    tasks.jar {
-        if (System.getenv("CI_JOB_TOKEN") != null) {
-            finalizedBy("publish")
-        }
-    }
-
     publishing {
         publications {
             create<MavenPublication>("maven") {
@@ -55,13 +49,12 @@ allprojects {
                 artifactId = this@allprojects.name
                 version = this@allprojects.version.toString()
 
-                println("Create POM: $groupId:$artifactId:$version")
-
                 from(components["java"])
             }
         }
+
         repositories {
-            maven("https://gitlab.com/api/v4/projects/karbonpowered%2Fkarbon/packages/maven") {
+            maven("https://gitlab.com/api/v4/projects/${System.getenv("CI_PROJECT_ID")}/packages/maven") {
                 credentials(HttpHeaderCredentials::class) {
                     name = "Job-Token"
                     value = System.getenv("CI_JOB_TOKEN")

@@ -1,8 +1,8 @@
 [submodule "commons"]
 	path = commons
 	url = https://github.com/KarbonPowered/commons
-[submodule "KarbonPowered-api"]
-	path = KarbonPowered-api
+[submodule "KarbonPowered-API"]
+	path = KarbonPowered-API
 	url = https://github.com/KarbonPowered/karbonpowered-api
 [submodule "network"]
 	path = network

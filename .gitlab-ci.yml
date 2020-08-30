@@ -17,4 +17,4 @@ build:
       - .gradle/
   script:
     - chmod +x gradlew
-    - ./gradlew build
+    - ./gradlew build publish
