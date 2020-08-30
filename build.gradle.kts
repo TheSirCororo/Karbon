@@ -58,7 +58,7 @@ allprojects {
             }
         }
         repositories {
-            maven("https://repo.justmc.ru/") {
+            maven("https://repo.justmc.ru") {
                 credentials(HttpHeaderCredentials::class) {
                     name = "Job-Token"
                     value = System.getenv("CI_JOB_TOKEN")
