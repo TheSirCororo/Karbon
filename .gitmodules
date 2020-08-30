@@ -1,27 +1,27 @@
-[submodule "KarbonPowered-Commons"]
-	path = KarbonPowered-Commons
+[submodule "commons"]
+	path = commons
 	url = https://github.com/KarbonPowered/commons
-[submodule "KarbonPowered-API"]
-	path = KarbonPowered-API
+[submodule "KarbonPowered-api"]
+	path = KarbonPowered-api
 	url = https://github.com/KarbonPowered/karbonpowered-api
-[submodule "KarbonPowered-Network"]
-	path = KarbonPowered-Network
+[submodule "network"]
+	path = network
 	url = https://github.com/KarbonPowered/network
-[submodule "KarbonPowered-Text"]
-	path = KarbonPowered-Text
+[submodule "text"]
+	path = text
 	url = https://github.com/KarbonPowered/text
-[submodule "KarbonPowered-Translation"]
-	path = KarbonPowered-Translation
+[submodule "translation"]
+	path = translation
 	url = https://github.com/KarbonPowered/translation
-[submodule "KarbonPowered-Protocol"]
-	path = KarbonPowered-Protocol
+[submodule "protocol"]
+	path = protocol
 	url = https://github.com/KarbonPowered/protocol
-[submodule "KarbonPowered-NBT"]
-	path = KarbonPowered-NBT
+[submodule "nbt"]
+	path = nbt
 	url = https://github.com/KarbonPowered/nbt
-[submodule "KarbonPowered-Math"]
-	path = KarbonPowered-Math
+[submodule "math"]
+	path = math
 	url = https://github.com/KarbonPowered/math
-[submodule "KarbonPowered-Adapter"]
-	path = KarbonPowered-Adapter
+[submodule "adapter"]
+	path = adapter
 	url = https://github.com/KarbonPowered/adapter

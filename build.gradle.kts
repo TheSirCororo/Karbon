@@ -1,15 +1,18 @@
 plugins {
     kotlin("jvm")
-    maven
+    `maven-publish`
 }
 
 allprojects {
+    apply(plugin = "kotlin")
+    apply(plugin = "maven-publish")
+
     group = "com.github.karbonpowered"
     version = "0.0.1-SNAPSHOT"
 
     repositories {
         jcenter()
-        maven("https://dl.bintray.com/kotlin/kotlin-eap")
+        maven("https://gitlab.com/XjCyan1de/maven-repo/-/raw/master/")
         maven("https://jitpack.io/")
     }
 
@@ -71,15 +74,17 @@ allprojects {
     }
 }
 
-val karbonPoweredCommons = project(absoluteProjectPath("KarbonPowered-Commons"))
-val karbonPoweredMath = project(absoluteProjectPath("KarbonPowered-Math"))
-val karbonPoweredNetwork = project(absoluteProjectPath("KarbonPowered-Network"))
-val karbonPoweredTranslation = project(absoluteProjectPath("KarbonPowered-Translation"))
-val karbonPoweredText = project(absoluteProjectPath("KarbonPowered-Text"))
+println(absoluteProjectPath("commons"))
+
+val karbonPoweredCommons = project(absoluteProjectPath("commons"))
+val karbonPoweredMath = project(absoluteProjectPath("math"))
+val karbonPoweredNetwork = project(absoluteProjectPath("network"))
+val karbonPoweredTranslation = project(absoluteProjectPath("translation"))
+val karbonPoweredText = project(absoluteProjectPath("text"))
 val karbonPoweredApi = project(absoluteProjectPath("KarbonPowered-API"))
-val karbonPoweredNbt = project(absoluteProjectPath("KarbonPowered-NBT"))
-val karbonPoweredProtocol = project(absoluteProjectPath("KarbonPowered-Protocol"))
-val karbonPoweredAdapter = project(absoluteProjectPath("KarbonPowered-Adapter"))
+val karbonPoweredNbt = project(absoluteProjectPath("nbt"))
+val karbonPoweredProtocol = project(absoluteProjectPath("protocol"))
+val karbonPoweredAdapter = project(absoluteProjectPath("adapter"))
 
 karbonPoweredApi.dependencies {
     api(karbonPoweredCommons)
