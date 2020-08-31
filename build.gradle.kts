@@ -34,8 +34,12 @@ allprojects {
         }
     }
 
+    buildDir = File("$rootDir/build/projects/${project.name}")
+    val outDir = File("$rootDir/build/artifacts")
+
     tasks {
         jar {
+            destinationDirectory.set(outDir)
             finalizedBy("publishToMavenLocal")
         }
         compileKotlin {
