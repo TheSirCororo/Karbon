@@ -2,7 +2,6 @@ package com.github.karbonpowered.karbon
 
 import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.item.inventory.ContainerTypes
-import com.github.karbonpowered.api.nbt.CompoundBinaryTag
 import com.github.karbonpowered.protocol.java.ProtocolState
 import com.github.karbonpowered.protocol.java.data.Item
 import com.github.karbonpowered.protocol.java.s2c.game.GameContainerItemsS2CPacket
@@ -19,7 +18,6 @@ import kotlin.random.Random
 
 
 fun main() {
-    val empty = CompoundBinaryTag.empty()
     Server().apply {
         GlobalScope.launch {
             launch {

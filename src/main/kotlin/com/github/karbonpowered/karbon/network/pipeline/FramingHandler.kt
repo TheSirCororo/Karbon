@@ -25,7 +25,7 @@ class FramingHandler : ByteToMessageCodec<ByteBuf>() {
     }
 
     override fun encode(ctx: ChannelHandlerContext, msg: ByteBuf, out: ByteBuf) {
-        MessageBuffers.wrap(msg).writeVarInt(msg.readableBytes())
+        MessageBuffers.wrap(out).writeVarInt(msg.readableBytes())
         out.writeBytes(msg)
     }
 
