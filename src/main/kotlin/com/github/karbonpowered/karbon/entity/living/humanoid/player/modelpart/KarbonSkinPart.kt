@@ -1,9 +1,9 @@
 package com.github.karbonpowered.karbon.entity.living.humanoid.player.modelpart
 
-import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart
 import com.github.karbonpowered.translation.Translation
 import com.github.karbonpowered.translation.TranslationRegistry
+import com.karbonpowered.catalog.NamespacedKey
 
 class KarbonSkinPart(
         override val key: NamespacedKey,

@@ -1,9 +1,9 @@
 package com.github.karbonpowered.karbon.entity.living.humanoid.player.hand
 
-import com.github.karbonpowered.api.NamespacedKey
 import com.github.karbonpowered.api.entity.living.humanoid.player.hand.HandType
 import com.github.karbonpowered.translation.Translation
 import com.github.karbonpowered.translation.TranslationRegistry
+import com.karbonpowered.catalog.NamespacedKey
 
 data class KarbonHandType(
         override val key: NamespacedKey,

@@ -22,16 +22,14 @@ allprojects {
         val coroutinesVersion: String by project
         val nettyVersion: String by project
         val gsonVersion: String by project
+        val guavaVersion: String by project
 
         api(kotlin("stdlib-jdk8"))
         api("org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8", coroutinesVersion)
 
         api("io.netty", "netty-all", nettyVersion)
         api("com.google.code.gson", "gson", gsonVersion)
-
-        subprojects {
-            api(this)
-        }
+        implementation("com.google.guava", "guava", guavaVersion)
     }
 
     buildDir = File("$rootDir/build/projects/${project.name}")
@@ -83,8 +81,25 @@ val karbonPoweredTranslation = project(absoluteProjectPath("translation"))
 val karbonPoweredText = project(absoluteProjectPath("text"))
 val karbonPoweredApi = project(absoluteProjectPath("KarbonPowered-API"))
 val karbonPoweredNbt = project(absoluteProjectPath("nbt"))
-val karbonPoweredProtocol = project(absoluteProjectPath("protocol"))
+val karbonPoweredProtocol = project(absoluteProjectPath("protocol:protocol-java"))
 val karbonPoweredAdapter = project(absoluteProjectPath("adapter"))
+val karbonPoweredData = project(absoluteProjectPath("data"))
+val karbonPoweredCatalog = project(absoluteProjectPath("catalog"))
+
+dependencies {
+    subprojects {
+        api(karbonPoweredCommons)
+        api(karbonPoweredMath)
+        api(karbonPoweredNetwork)
+        api(karbonPoweredTranslation)
+        api(karbonPoweredText)
+        api(karbonPoweredApi)
+        api(karbonPoweredNbt)
+        api(karbonPoweredProtocol)
+        api(karbonPoweredData)
+        api(karbonPoweredCatalog)
+    }
+}
 
 karbonPoweredApi.dependencies {
     api(karbonPoweredCommons)

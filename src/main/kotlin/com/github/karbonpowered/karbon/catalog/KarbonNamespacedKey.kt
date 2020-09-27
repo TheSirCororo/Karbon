@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.catalog
 
-import com.github.karbonpowered.api.NamespacedKey
+import com.karbonpowered.catalog.NamespacedKey
 
 data class KarbonNamespacedKey(
         override val namespace: String,

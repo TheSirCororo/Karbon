@@ -1,7 +1,7 @@
 package com.github.karbonpowered.karbon.item.inventory
 
-import com.github.karbonpowered.api.NamespacedKey
-import com.github.karbonpowered.api.item.inventory.ContainerType
+import com.karbonpowered.api.item.inventory.ContainerType
+import com.karbonpowered.catalog.NamespacedKey
 
 class KarbonContainerType(
         override val key: NamespacedKey

@@ -1,7 +1,5 @@
 package com.github.karbonpowered.karbon
 
-import com.github.karbonpowered.api.NamespacedKey
-import com.github.karbonpowered.api.item.inventory.ContainerTypes
 import com.github.karbonpowered.protocol.java.ProtocolState
 import com.github.karbonpowered.protocol.java.data.Item
 import com.github.karbonpowered.protocol.java.s2c.game.GameContainerItemsS2CPacket
@@ -10,6 +8,8 @@ import com.github.karbonpowered.protocol.java.s2c.game.GameKeepAliveS2CPacket
 import com.github.karbonpowered.protocol.java.s2c.game.GameOpenContainerS2CPacket
 import com.github.karbonpowered.text.Text
 import com.github.karbonpowered.text.format.TextColor
+import com.karbonpowered.api.item.inventory.ContainerTypes
+import com.karbonpowered.catalog.NamespacedKey
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
