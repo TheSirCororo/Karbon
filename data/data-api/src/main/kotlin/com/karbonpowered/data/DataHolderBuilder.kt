@@ -3,6 +3,7 @@ package com.karbonpowered.data
 import com.github.karbonpowered.commons.builder.CopyableBuilder
 import com.karbonpowered.data.value.Value
 
+@Suppress("UNCHECKED_CAST")
 interface DataHolderBuilder<H : DataHolder, B : DataHolderBuilder<H, B>> : CopyableBuilder<H, B> {
     fun add(value: Value<*>): B = apply {
         add(value.key as Key<Value<Any>>, value.get() as Any)

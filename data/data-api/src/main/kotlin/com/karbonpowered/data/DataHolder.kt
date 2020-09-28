@@ -16,6 +16,8 @@ interface DataHolder : ValueContainer<Any?, Any?> {
             } else DataTransactionResult.failNoData()
         }
 
+        operator fun <E, V : Value<E>> set(key: Key<V>, value: E): DataTransactionResult = offer(key, value)
+
         fun <E, V : Value<E>> offer(key: Key<V>, value: E): DataTransactionResult
 
         fun offer(value: Value<*>): DataTransactionResult

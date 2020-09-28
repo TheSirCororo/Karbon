@@ -61,6 +61,7 @@ open class KarbonItemStack(
             this.keyValues = value.values.map { it.key to it }.toMap(LinkedHashMap())
         }
 
+        @Suppress("UNCHECKED_CAST")
         override fun build(): ItemStack {
             val itemStack = KarbonItemStack(type, quantity)
             keyValues?.forEach { key, value -> itemStack.offer(key as Key<Value<Any>>, value) }

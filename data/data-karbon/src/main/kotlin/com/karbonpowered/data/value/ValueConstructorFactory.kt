@@ -1,6 +1,7 @@
 package com.karbonpowered.data.value
 
 import com.karbonpowered.data.key.KarbonKey
+import com.karbonpowered.data.value.immutable.ImmutableKarbonListValue
 import com.karbonpowered.data.value.immutable.ImmutableKarbonValue
 import com.karbonpowered.data.value.mutable.MutableKarbonListValue
 import com.karbonpowered.data.value.mutable.MutableKarbonValue
@@ -13,9 +14,9 @@ object ValueConstructorFactory {
             ListValue::class.java.isAssignableFrom(valueType) -> SimpleValueConstructor(
                     key,
                     { k, e -> MutableKarbonListValue(k as KarbonKey<ListValue.Mutable<E>, List<E>>, e as List<E>) as V },
-                    { k, e -> TODO() },
+                    { k, e -> ImmutableKarbonListValue(k as KarbonKey<ListValue.Mutable<E>, List<E>>, e as List<E>) as V },
             )
-            ListValue::class.java.isAssignableFrom(valueType) -> {
+            SetValue::class.java.isAssignableFrom(valueType) -> {
                 TODO()
             }
             MapValue::class.java.isAssignableFrom(valueType) -> {

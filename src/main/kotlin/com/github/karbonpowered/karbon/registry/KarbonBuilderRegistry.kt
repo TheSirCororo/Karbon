@@ -3,6 +3,7 @@ package com.github.karbonpowered.karbon.registry
 import com.github.karbonpowered.api.nbt.BinaryTag
 import com.github.karbonpowered.api.nbt.CompoundBinaryTag
 import com.github.karbonpowered.api.nbt.ListBinaryTag
+import com.github.karbonpowered.api.registry.BuilderRegistry
 import com.github.karbonpowered.api.registry.DuplicateRegistrationException
 import com.github.karbonpowered.api.registry.UnknownTypeException
 import com.github.karbonpowered.commons.builder.ResettableBuilder

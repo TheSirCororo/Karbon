@@ -8,14 +8,12 @@ import java.util.function.Consumer
 class MutableKarbonListValue<E>(
         override val key: KarbonKey<ListValue.Mutable<E>, List<E>>,
         override var element: List<E>,
-) :
-        MutableKarbonCollectionValue<
-                E,
-                List<E>,
-                MutableList<E>,
-                ListValue.Mutable<E>,
-                ListValue.Immutable<E>>(),
-        ListValue.Mutable<E> {
+) : MutableKarbonCollectionValue<
+        E,
+        List<E>,
+        MutableList<E>,
+        ListValue.Mutable<E>,
+        ListValue.Immutable<E>>(), ListValue.Mutable<E> {
 
     override fun get(index: Int): E = this.element[index]
 

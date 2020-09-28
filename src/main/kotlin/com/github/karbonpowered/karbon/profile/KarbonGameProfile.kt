@@ -1,7 +1,7 @@
 package com.github.karbonpowered.karbon.profile
 
-import com.github.karbonpowered.api.profile.GameProfile
-import com.github.karbonpowered.api.profile.property.ProfileProperty
+import com.karbonpowered.api.profile.GameProfile
+import com.karbonpowered.api.profile.property.ProfileProperty
 import java.util.*
 import kotlin.collections.HashMap
 

@@ -10,7 +10,7 @@ interface CollectionValue<E, C : Collection<E>> : Value<C>, Iterable<E> {
 
     operator fun contains(element: E): Boolean
 
-    operator fun contains(iterable: Iterable<E>): Boolean
+    fun containsAll(iterable: Iterable<E>): Boolean
 
     fun getAll(): C
 
@@ -26,7 +26,7 @@ interface CollectionValue<E, C : Collection<E>> : Value<C>, Iterable<E> {
 
         fun withoutAll(elements: Iterable<E>): I
 
-        fun withoutAll(predicate: Predicate<E>)
+        fun withoutAll(predicate: Predicate<E>): I
 
         override fun with(value: C): I
 

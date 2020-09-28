@@ -3,6 +3,7 @@ package com.karbonpowered.data.value
 import com.karbonpowered.data.Key
 import com.karbonpowered.data.key.KarbonKey
 
+@Suppress("UNCHECKED_CAST")
 class KarbonValueFactory : Value.Factory {
     override fun <V : Value<E>, E> mutableOf(key: Key<V>, element: E): V = (key as KarbonKey<V,E>).valueConstructor.getMutable(element)
 

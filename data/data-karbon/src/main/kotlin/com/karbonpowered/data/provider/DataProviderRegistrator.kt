@@ -17,6 +17,7 @@ open class DataProviderRegistrator(
             builder: DataProviderRegistratorBuilder,
             val target: Class<T>
     ) : DataProviderRegistrator(builder) {
+        @Suppress("UNCHECKED_CAST")
         fun <K, V : Value<K>> create(key: Key<V>): MutableRegistration<T, K> {
             val registration = MutableRegistration(this, key as Key<Value<K>>)
             register(registration)
@@ -43,11 +44,12 @@ open class DataProviderRegistrator(
         }
     }
 
+    @Suppress("UNCHECKED_CAST")
     open class MutableRegistrationBase<H, E, R : MutableRegistrationBase<H, E, R>>(
             val key: Key<Value<E>>
     ) {
         private var constructValue: BiFunction<H, E, Value<E>>? = null
-        private var get: Function<H, E>? = null
+        private var get: Function<H, E?>? = null
         private var setAnd: BiFunction<H, E, Boolean>? = null
         private var set: BiConsumer<H, E>? = null
         private var deleteAnd: Function<H, Boolean>? = null
@@ -61,7 +63,7 @@ open class DataProviderRegistrator(
             this.constructValue = constructValue
         } as R
 
-        fun get(get: Function<H, E>): R = apply {
+        fun get(get: Function<H, E?>): R = apply {
             this.get = get
         } as R
 
@@ -107,7 +109,6 @@ open class DataProviderRegistrator(
             val registration = this
             return object : GenericMutableDataProvider<H, E>(registration.key, target) {
                 val isBooleanKey = registration.key.elementToken.rawType == Boolean::class.java
-
 
 
                 override fun constructValue(dataHolder: H, element: E): Value<E> =

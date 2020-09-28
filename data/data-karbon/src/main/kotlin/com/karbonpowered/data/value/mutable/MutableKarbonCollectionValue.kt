@@ -6,14 +6,15 @@ import java.util.function.Consumer
 import java.util.function.Function
 import java.util.function.Predicate
 
+@Suppress("UNCHECKED_CAST")
 abstract class MutableKarbonCollectionValue<
         E,
         C : Collection<E>,
-        M : MutableCollection<E>,
-        V : CollectionValue.Mutable<E, C, V, I>,
-        I : CollectionValue.Immutable<E, C, I, V>
-        > : AbstractMutableKarbonValue<C>(), CollectionValue.Mutable<E, C, V, I> {
-    abstract override val key: KarbonKey<V, C>
+        V : MutableCollection<E>,
+        M : CollectionValue.Mutable<E, C, M, I>,
+        I : CollectionValue.Immutable<E, C, I, M>
+        > : AbstractMutableKarbonValue<C>(), CollectionValue.Mutable<E, C, M, I> {
+    abstract override val key: KarbonKey<M, C>
 
     override val size: Int get() = element.size
 
@@ -21,25 +22,25 @@ abstract class MutableKarbonCollectionValue<
 
     override fun contains(element: E): Boolean = this.element.contains(element)
 
-    override fun contains(iterable: Iterable<E>): Boolean = if (iterable is Collection<*>) element.containsAll(iterable) else iterable.all { contains(it) }
+    override fun containsAll(iterable: Iterable<E>): Boolean = if (iterable is Collection<*>) element.containsAll(iterable) else iterable.all { contains(it) }
 
     override fun getAll(): C = element
 
-    protected abstract fun modifyCollection(consumer: Consumer<M>): V
+    protected abstract fun modifyCollection(consumer: Consumer<V>): M
 
-    override fun add(element: E): V = modifyCollection { it.add(element) }
+    override fun add(element: E): M = modifyCollection { it.add(element) }
 
-    override fun addAll(elements: Iterable<E>): V = modifyCollection {  it.addAll(elements) }
+    override fun addAll(elements: Iterable<E>): M = modifyCollection { it.addAll(elements) }
 
-    override fun remove(element: E): V = if (!contains(element)) this as V else modifyCollection {  it.remove(element) }
+    override fun remove(element: E): M = if (!contains(element)) this as M else modifyCollection { it.remove(element) }
 
-    override fun removeAll(elements: Iterable<E>): V = if (elements.none { element.contains(it) }) this as V else modifyCollection { elements.forEach { remove(it) } }
+    override fun removeAll(elements: Iterable<E>): M = if (elements.none { element.contains(it) }) this as M else modifyCollection { elements.forEach { remove(it) } }
 
-    override fun removeAll(predicate: Predicate<E>): V = modifyCollection {  it.removeIf(predicate) }
+    override fun removeAll(predicate: Predicate<E>): M = modifyCollection { it.removeIf(predicate) }
 
-    override fun set(value: C): V = super.set(value) as V
+    override fun set(value: C): M = super.set(value) as M
 
-    override fun transform(function: Function<C, C>): V = set(function.apply(get()))
+    override fun transform(function: Function<C, C>): M = set(function.apply(get()))
 
     override fun iterator(): Iterator<E> = element.iterator()
 }

@@ -1,6 +1,6 @@
 package com.github.karbonpowered.karbon.profile
 
-import com.github.karbonpowered.api.profile.property.ProfileProperty
+import com.karbonpowered.api.profile.property.ProfileProperty
 import com.karbonpowered.data.persistence.DataContainer
 
 data class KarbonProfileProperty(

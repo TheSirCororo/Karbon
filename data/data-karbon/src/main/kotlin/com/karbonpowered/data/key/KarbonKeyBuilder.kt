@@ -14,7 +14,7 @@ import java.util.function.Supplier
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
 
-@Suppress("UNCHECKED_CAST")
+@Suppress("UNCHECKED_CAST", "UnstableApiUsage")
 class KarbonKeyBuilder<E, V : Value<E>> :
         CatalogBuilder<Key<V>, Key.Builder<E, V>>,
         Key.Builder<E, V> {
@@ -35,8 +35,8 @@ class KarbonKeyBuilder<E, V : Value<E>> :
         this.comparator = comparator
     }
 
-    override fun includesTester(includesTester: BiPredicate<in E, in E>): KarbonKeyBuilder<E, V> = apply {
-        this.includesTester = includesTester
+    override fun includesTester(predicate: BiPredicate<in E, in E>): KarbonKeyBuilder<E, V> = apply {
+        this.includesTester = predicate
     }
 
     override fun reset(): KarbonKeyBuilder<E, V> = apply {
