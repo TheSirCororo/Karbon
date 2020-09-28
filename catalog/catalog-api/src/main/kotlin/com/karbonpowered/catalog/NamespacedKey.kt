@@ -1,7 +1,7 @@
 package com.karbonpowered.catalog
 
-import com.github.karbonpowered.commons.builder.ResettableBuilder
-import com.github.karbonpowered.commons.lang.loadService
+import com.karbonpowered.commons.builder.ResettableBuilder
+import com.karbonpowered.commons.lang.loadService
 
 interface NamespacedKey : Comparable<NamespacedKey> {
     val namespace: String

@@ -1,7 +1,7 @@
 package com.karbonpowered.data.persistence
 
-import com.github.karbonpowered.commons.Nameable
 import com.karbonpowered.catalog.CatalogType
+import com.karbonpowered.commons.Nameable
 import kotlin.reflect.KClass
 
 interface DataView : Nameable {

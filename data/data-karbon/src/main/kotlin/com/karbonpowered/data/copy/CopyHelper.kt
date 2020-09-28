@@ -1,6 +1,6 @@
 package com.karbonpowered.data.copy
 
-import com.github.karbonpowered.commons.Copyable
+import com.karbonpowered.commons.Copyable
 import java.util.*
 import java.util.concurrent.CopyOnWriteArrayList
 import kotlin.collections.ArrayList

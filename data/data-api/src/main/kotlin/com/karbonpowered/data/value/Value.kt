@@ -1,6 +1,6 @@
 package com.karbonpowered.data.value
 
-import com.github.karbonpowered.commons.lang.loadService
+import com.karbonpowered.commons.lang.loadService
 import com.karbonpowered.data.Key
 import java.util.function.Function
 

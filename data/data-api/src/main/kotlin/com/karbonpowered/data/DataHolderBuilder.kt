@@ -1,6 +1,6 @@
 package com.karbonpowered.data
 
-import com.github.karbonpowered.commons.builder.CopyableBuilder
+import com.karbonpowered.commons.builder.CopyableBuilder
 import com.karbonpowered.data.value.Value
 
 @Suppress("UNCHECKED_CAST")

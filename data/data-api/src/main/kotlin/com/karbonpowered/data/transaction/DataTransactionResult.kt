@@ -1,6 +1,6 @@
 package com.karbonpowered.data.transaction
 
-import com.github.karbonpowered.commons.builder.CopyableBuilder
+import com.karbonpowered.commons.builder.CopyableBuilder
 import com.karbonpowered.data.value.Value
 
 class DataTransactionResult private constructor(

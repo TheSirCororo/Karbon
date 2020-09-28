@@ -1,6 +1,6 @@
 package com.karbonpowered.catalog
 
-import com.github.karbonpowered.commons.lang.loadService
+import com.karbonpowered.commons.lang.loadService
 import java.util.function.Supplier
 import java.util.stream.Stream
 import kotlin.reflect.KClass

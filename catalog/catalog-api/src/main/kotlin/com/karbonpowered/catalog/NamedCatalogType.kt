@@ -1,6 +1,6 @@
 package com.karbonpowered.catalog
 
-import com.github.karbonpowered.commons.Nameable
+import com.karbonpowered.commons.Nameable
 
 interface NamedCatalogType : CatalogType, Nameable {
     override val name: String

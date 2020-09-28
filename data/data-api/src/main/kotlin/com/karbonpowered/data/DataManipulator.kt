@@ -1,6 +1,6 @@
 package com.karbonpowered.data
 
-import com.github.karbonpowered.commons.lang.loadService
+import com.karbonpowered.commons.lang.loadService
 import com.karbonpowered.data.value.CopyableValueContainer
 import com.karbonpowered.data.value.MergeFunction
 import com.karbonpowered.data.value.Value

@@ -7,7 +7,7 @@ allprojects {
     apply(plugin = "kotlin")
     apply(plugin = "maven-publish")
 
-    group = "com.github.karbonpowered"
+    group = "com.karbonpowered"
     version = "0.0.1-SNAPSHOT"
 
     repositories {

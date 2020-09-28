@@ -1,6 +1,6 @@
 package com.karbonpowered.catalog
 
-import com.github.karbonpowered.commons.builder.ResettableBuilder
+import com.karbonpowered.commons.builder.ResettableBuilder
 
 interface CatalogBuilder<C : CatalogType, B : ResettableBuilder<C, B>> : ResettableBuilder<C, B> {
     var key: NamespacedKey?
