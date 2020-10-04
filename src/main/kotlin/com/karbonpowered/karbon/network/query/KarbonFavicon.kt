@@ -17,8 +17,7 @@ class KarbonFavicon(
 ) : Favicon {
     override fun toString(): String = Factory.encode(image)
 
-    object Factory : Favicon.Factory {
-        private const val FAVICON_PREFIX = "data:image/png;base64,"
+    class Factory : Favicon.Factory {
 
         override fun load(bufferedImage: BufferedImage): Favicon = KarbonFavicon(bufferedImage)
 
@@ -30,39 +29,43 @@ class KarbonFavicon(
 
         override fun load(raw: String): Favicon = load(decode(raw))
 
-        internal fun encode(favicon: BufferedImage): String {
-            require(favicon.width == 64) { "favicon must be 64 pixels wide" }
-            require(favicon.height == 64) { "favicon must be 64 pixels high" }
+        companion object {
+            private val FAVICON_PREFIX = "data:image/png;base64,"
 
-            val buf = Unpooled.buffer()
-            try {
-                ImageIO.write(favicon, "PNG", ByteBufOutputStream(buf))
-                val base64 = Base64.encode(buf)
-                try {
-                    return "$FAVICON_PREFIX${base64.toString(Charsets.UTF_8)}"
-                } finally {
-                    base64.release()
-                }
-            } finally {
-                buf.release()
-            }
-        }
+            internal fun encode(favicon: BufferedImage): String {
+                require(favicon.width == 64) { "favicon must be 64 pixels wide" }
+                require(favicon.height == 64) { "favicon must be 64 pixels high" }
 
-        internal fun decode(encoded: String): BufferedImage {
-            require(encoded.startsWith(FAVICON_PREFIX)) { "Unknown favicon format" }
-            val base64 = Unpooled.copiedBuffer(encoded.substring(FAVICON_PREFIX.length), Charsets.UTF_8)
-            try {
-                val buf = Base64.decode(base64)
+                val buf = Unpooled.buffer()
                 try {
-                    val result = ImageIO.read(ByteBufInputStream(buf))
-                    check(result.width == 64) { "favicon must be 64 pixels wide" }
-                    check(result.height == 64) { "favicon must be 64 pixels high" }
-                    return result
+                    ImageIO.write(favicon, "PNG", ByteBufOutputStream(buf))
+                    val base64 = Base64.encode(buf)
+                    try {
+                        return "$FAVICON_PREFIX${base64.toString(Charsets.UTF_8)}"
+                    } finally {
+                        base64.release()
+                    }
                 } finally {
                     buf.release()
                 }
-            } finally {
-                base64.release()
+            }
+
+            internal fun decode(encoded: String): BufferedImage {
+                require(encoded.startsWith(FAVICON_PREFIX)) { "Unknown favicon format" }
+                val base64 = Unpooled.copiedBuffer(encoded.substring(FAVICON_PREFIX.length), Charsets.UTF_8)
+                try {
+                    val buf = Base64.decode(base64)
+                    try {
+                        val result = ImageIO.read(ByteBufInputStream(buf))
+                        check(result.width == 64) { "favicon must be 64 pixels wide" }
+                        check(result.height == 64) { "favicon must be 64 pixels high" }
+                        return result
+                    } finally {
+                        buf.release()
+                    }
+                } finally {
+                    base64.release()
+                }
             }
         }
     }
