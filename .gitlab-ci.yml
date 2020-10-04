@@ -19,7 +19,7 @@ build:
   artifacts:
     name: "$CI_ENVIRONMENT_NAME"
     paths:
-      - build/artifacts
+      - build
   script:
     - chmod +x gradlew
     - ./gradlew build
