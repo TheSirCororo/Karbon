@@ -61,7 +61,7 @@ allprojects {
         }
 
         repositories {
-            maven(url = "https://maven.pkg.github.com/karbonpowered/karbon") {
+            maven(url = "https://maven.pkg.github.com/KarbonPowered/Karbon") {
                 credentials {
                     username = System.getenv("GITHUB_ACTOR")
                     password = System.getenv("GITHUB_TOKEN")

@@ -37,8 +37,12 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Build an publish with Gradle
-        run: ./gradlew build publish
+      - name: Build with Gradle
+        run: ./gradlew build
+      - name: Publish artifacts
+        run: ./gradlew publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
