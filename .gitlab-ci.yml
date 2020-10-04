@@ -32,4 +32,4 @@ publish:
     - master
   script:
     - chmod +x gradlew
-    - gradle publish
+    - gradle publish --build-cache
