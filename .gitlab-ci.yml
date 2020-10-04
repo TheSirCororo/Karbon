@@ -26,6 +26,10 @@ build:
 publish:
   stage: publish
   image: gradle:latest
+  cache:
+    key: $CI_PROJECT_NAME
+    paths:
+      - .gradle/
   tags:
     - gitlab-org
   only:
