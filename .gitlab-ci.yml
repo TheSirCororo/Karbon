@@ -1,5 +1,6 @@
 stages:
   - build
+  - publish
 variables:
   GIT_STRATEGY: fetch
   GIT_SUBMODULE_STRATEGY: recursive
@@ -9,6 +10,8 @@ build:
   image: adoptopenjdk:latest
   only:
     - master
+  tags:
+    - build
   cache:
     key: $CI_PROJECT_NAME
     paths:
@@ -21,7 +24,7 @@ build:
     - chmod +x gradlew
     - ./gradlew build
 publish:
-  stage: build
+  stage: publish
   image: adoptopenjdk:latest
   tags:
     - gitlab-org
