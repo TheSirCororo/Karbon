@@ -1,16 +1,11 @@
 package com.karbonpowered.karbon.registry
 
-import com.karbonpowered.api.nbt.BinaryTag
-import com.karbonpowered.api.nbt.CompoundBinaryTag
-import com.karbonpowered.api.nbt.ListBinaryTag
 import com.karbonpowered.api.registry.BuilderRegistry
 import com.karbonpowered.api.registry.DuplicateRegistrationException
 import com.karbonpowered.api.registry.UnknownTypeException
 import com.karbonpowered.catalog.NamespacedKey
 import com.karbonpowered.commons.builder.ResettableBuilder
 import com.karbonpowered.karbon.catalog.KarbonNamespacedKey
-import com.karbonpowered.nbt.CompoundTagBuilder
-import com.karbonpowered.nbt.KarbonListBinaryTag
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.reflect.KClass
 import kotlin.time.ExperimentalTime
@@ -40,13 +35,7 @@ class KarbonBuilderRegistry : BuilderRegistry {
     @OptIn(ExperimentalTime::class)
     fun registerDefaultBuilders() = measureTime {
         registerBuilder(NamespacedKey.Builder::class) { KarbonNamespacedKey.Builder() }
-        registerNbt()
     }.also {
         println("[Karbon] Registered ${builders.size} builders in $it")
-    }
-
-    private fun registerNbt() {
-        registerBuilder(CompoundBinaryTag.Builder::class) { CompoundTagBuilder() }
-        registerBuilder(ListBinaryTag.Builder::class) { KarbonListBinaryTag.Builder<BinaryTag>() }
     }
 }

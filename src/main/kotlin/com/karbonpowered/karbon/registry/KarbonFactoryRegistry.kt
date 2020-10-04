@@ -1,6 +1,5 @@
 package com.karbonpowered.karbon.registry
 
-import com.karbonpowered.api.nbt.*
 import com.karbonpowered.api.network.query.Favicon
 import com.karbonpowered.api.registry.DuplicateRegistrationException
 import com.karbonpowered.api.registry.FactoryRegistry

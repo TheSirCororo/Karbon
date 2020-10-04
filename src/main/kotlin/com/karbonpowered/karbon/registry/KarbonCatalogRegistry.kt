@@ -6,7 +6,6 @@ import com.karbonpowered.api.entity.living.humanoid.player.gamemode.GameMode
 import com.karbonpowered.api.entity.living.humanoid.player.hand.HandType
 import com.karbonpowered.api.entity.living.humanoid.player.modelpart.SkinPart
 import com.karbonpowered.api.item.inventory.ContainerType
-import com.karbonpowered.api.nbt.BinaryTagType
 import com.karbonpowered.api.registry.DuplicateRegistrationException
 import com.karbonpowered.api.registry.UnknownTypeException
 import com.karbonpowered.api.world.difficulty.Difficulty
@@ -22,6 +21,7 @@ import com.karbonpowered.karbon.item.inventory.KarbonContainerType
 import com.karbonpowered.karbon.text.chat.KarbonChatVisibility
 import com.karbonpowered.karbon.text.chat.KarbonMessagePosition
 import com.karbonpowered.karbon.world.difficulty.KarbonDifficulty
+import com.karbonpowered.nbt.BinaryTagType
 import com.karbonpowered.nbt.KarbonBinaryTagType
 import java.util.function.Supplier
 import java.util.stream.Stream
