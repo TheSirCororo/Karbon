@@ -13,6 +13,20 @@ build:
     key: $CI_PROJECT_NAME
     paths:
       - .gradle/
+  artifacts:
+    name: "$CI_ENVIRONMENT_NAME"
+    paths:
+      - build/artifacts
   script:
     - chmod +x gradlew
-    - ./gradlew build publish
+    - ./gradlew build
+publish:
+  stage: build
+  image: adoptopenjdk:latest
+  tags:
+    - gitlab-org
+  only:
+    - master
+  script:
+    - chmod +x gradlew
+    - ./gradlew publish
