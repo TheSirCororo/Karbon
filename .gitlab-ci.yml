@@ -25,11 +25,11 @@ build:
     - ./gradlew build
 publish:
   stage: publish
-  image: adoptopenjdk:latest
+  image: gradle:latest
   tags:
     - gitlab-org
   only:
     - master
   script:
     - chmod +x gradlew
-    - ./gradlew publish
+    - gradle publish
