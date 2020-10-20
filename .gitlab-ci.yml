@@ -10,8 +10,6 @@ build:
   image: adoptopenjdk:latest
   only:
     - master
-  tags:
-    - build
   cache:
     key: $CI_PROJECT_NAME
     paths:
