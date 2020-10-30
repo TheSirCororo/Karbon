@@ -11,12 +11,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/karbonpowered-adapter-bukkit" />
             <option value="$PROJECT_DIR$/karbonpowered-adapter-velocity" />
-            <option value="$PROJECT_DIR$/karbonpowered-api" />
             <option value="$PROJECT_DIR$/karbonpowered-catalog-api" />
             <option value="$PROJECT_DIR$/karbonpowered-commons" />
             <option value="$PROJECT_DIR$/karbonpowered-constant-api" />
             <option value="$PROJECT_DIR$/karbonpowered-data-api" />
             <option value="$PROJECT_DIR$/karbonpowered-data-impl" />
+            <option value="$PROJECT_DIR$/karbonpowered-game-api" />
             <option value="$PROJECT_DIR$/karbonpowered-item-api" />
             <option value="$PROJECT_DIR$/karbonpowered-item-impl" />
             <option value="$PROJECT_DIR$/karbonpowered-math" />
