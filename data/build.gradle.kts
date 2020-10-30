@@ -1,5 +1,0 @@
-dependencies {
-    subprojects {
-        api(this)
-    }
-}

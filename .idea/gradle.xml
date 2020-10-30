@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -8,11 +9,33 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/catalog" />
-            <option value="$PROJECT_DIR$/catalog/catalog-api" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/data-api" />
-            <option value="$PROJECT_DIR$/data/data-karbon" />
+            <option value="$PROJECT_DIR$/karbonpowered-adapter-bukkit" />
+            <option value="$PROJECT_DIR$/karbonpowered-adapter-velocity" />
+            <option value="$PROJECT_DIR$/karbonpowered-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-catalog-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-commons" />
+            <option value="$PROJECT_DIR$/karbonpowered-constant-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-data-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-data-impl" />
+            <option value="$PROJECT_DIR$/karbonpowered-item-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-item-impl" />
+            <option value="$PROJECT_DIR$/karbonpowered-math" />
+            <option value="$PROJECT_DIR$/karbonpowered-nbt-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-nbt-impl" />
+            <option value="$PROJECT_DIR$/karbonpowered-network" />
+            <option value="$PROJECT_DIR$/karbonpowered-profile-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-protocol-java" />
+            <option value="$PROJECT_DIR$/karbonpowered-server-impl" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-impl" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-renderer-translatable" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-serializer-adventure" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-serializer-bungee" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-serializer-gson" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-serializer-legacy" />
+            <option value="$PROJECT_DIR$/karbonpowered-text-serializer-plain" />
+            <option value="$PROJECT_DIR$/karbonpowered-translation-api" />
+            <option value="$PROJECT_DIR$/karbonpowered-translation-impl" />
           </set>
         </option>
       </GradleProjectSettings>

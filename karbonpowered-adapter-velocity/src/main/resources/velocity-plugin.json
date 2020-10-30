@@ -1,0 +1,6 @@
+{
+  "id": "karbonpowered-api",
+  "name": "KarbonPowered-API",
+  "version": "0.0.1-SNAPSHOT",
+  "main": "com.karbonpowered.adapter.velocity.VelocityAdapter"
+}
