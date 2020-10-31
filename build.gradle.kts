@@ -24,7 +24,7 @@ project.afterEvaluate {
     if (!paperDir.exists()) {
         println("Cloning https://github.com/PaperMC/Paper.git")
         runProcess(null, "git clone --recursive https://github.com/PaperMC/Paper.git")
-        runProcess(File( "Paper"), "mvn clean install")
+        runProcess(File( "Paper"), "/bin/bash paper install")
     }
 }
 
