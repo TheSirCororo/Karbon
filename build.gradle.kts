@@ -20,10 +20,11 @@ project.afterEvaluate {
         return process.waitFor()
     }
 
+    println("$paperDir not exists, building...")
     if (!paperDir.exists()) {
         println("Cloning https://github.com/PaperMC/Paper.git")
         runProcess(null, "git clone --recursive https://github.com/PaperMC/Paper.git")
-        runProcess(File( "Paper"), "sh paper install")
+        runProcess(File( "Paper"), "mvn clean install")
     }
 }
 
