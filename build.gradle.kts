@@ -42,6 +42,8 @@ allprojects {
         jcenter()
         maven("https://oss.sonatype.org/content/repositories/snapshots/")
         maven("https://jitpack.io/")
+        maven("https://repo.velocitypowered.com/snapshots/")
+        maven("https://papermc.io/repo/repository/maven-public/")
     }
 
     dependencies {

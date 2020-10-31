@@ -1,7 +1,3 @@
-repositories {
-    maven("https://papermc.io/repo/repository/maven-public/")
-}
-
 dependencies {
     api(project(relativeProjectPath(":karbonpowered-game-api")))
     api(project(relativeProjectPath(":karbonpowered-item-impl")))
