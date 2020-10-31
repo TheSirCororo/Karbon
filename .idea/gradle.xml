@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/karbonpowered-adapter-bukkit" />
+            <option value="$PROJECT_DIR$/karbonpowered-adapter-plugin" />
             <option value="$PROJECT_DIR$/karbonpowered-adapter-velocity" />
             <option value="$PROJECT_DIR$/karbonpowered-catalog-api" />
             <option value="$PROJECT_DIR$/karbonpowered-commons" />

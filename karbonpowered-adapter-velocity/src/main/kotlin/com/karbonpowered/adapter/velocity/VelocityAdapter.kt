@@ -10,8 +10,6 @@ import net.kyori.adventure.audience.MessageType
 import net.kyori.adventure.title.Title
 import java.time.Duration
 
-class VelocityAdapter
-
 fun MessagePosition.asAdventure(): MessageType = when (this) {
     MessagePositions.CHAT -> MessageType.CHAT
     MessagePositions.SYSTEM -> MessageType.SYSTEM

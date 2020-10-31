@@ -8,6 +8,6 @@ dependencies {
     api(project(relativeProjectPath(":karbonpowered-data-impl")))
     api(project(relativeProjectPath(":karbonpowered-constant-api")))
     api(project(relativeProjectPath(":karbonpowered-text-serializer-bungee")))
-    compileOnly("com.destroystokyo.paper", "paper-api", "1.16.3-R0.1-SNAPSHOT")
-    compileOnly("com.destroystokyo.paper", "paper", "1.16.3-R0.1-SNAPSHOT")
+    compileOnlyApi("com.destroystokyo.paper", "paper-api", "1.16.3-R0.1-SNAPSHOT")
+    compileOnlyApi("com.destroystokyo.paper", "paper", "1.16.3-R0.1-SNAPSHOT")
 }

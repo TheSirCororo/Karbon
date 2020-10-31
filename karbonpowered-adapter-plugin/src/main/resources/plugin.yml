@@ -1,0 +1,3 @@
+name: KarbonPowered-API
+main: com.karbonpowered.adapter.plugin.BukkitPlugin
+version: 0.0.1

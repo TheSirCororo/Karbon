@@ -5,6 +5,7 @@ import java.util.zip.*
 plugins {
     kotlin("jvm")
     `maven-publish`
+    `java-library`
 }
 
 project.afterEvaluate {
@@ -31,6 +32,7 @@ project.afterEvaluate {
 allprojects {
     apply(plugin = "kotlin")
     apply(plugin = "maven-publish")
+    apply(plugin = "java-library")
 
     group = "com.karbonpowered"
     version = "0.0.1-SNAPSHOT"
