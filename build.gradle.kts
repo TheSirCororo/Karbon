@@ -7,6 +7,26 @@ plugins {
     `maven-publish`
 }
 
+project.afterEvaluate {
+    val m2Dir = File(System.getProperty("user.home"), ".m2")
+    val repositoryDir = File(m2Dir, "repository")
+    val paperDir = File(repositoryDir, "com"+File.separatorChar+"destroystokyo"+File.separatorChar+"paper"+File.separatorChar+"paper")
+
+    fun runProcess(dir: File?, command: String): Int {
+        val process = ProcessBuilder(command.split(" ")).directory(dir).start()
+        process.inputStream.bufferedReader().forEachLine {
+            println(it)
+        }
+        return process.waitFor()
+    }
+
+    if (!paperDir.exists()) {
+        println("Cloning https://github.com/PaperMC/Paper.git")
+        runProcess(null, "git clone --recursive https://github.com/PaperMC/Paper.git")
+        runProcess(File( "Paper"), "sh paper install")
+    }
+}
+
 allprojects {
     apply(plugin = "kotlin")
     apply(plugin = "maven-publish")
