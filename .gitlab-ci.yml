@@ -18,6 +18,8 @@ build:
     name: "$CI_ENVIRONMENT_NAME"
     paths:
       - build
+  tags:
+    - build
   script:
     - chmod +x gradlew
     - ./gradlew build
