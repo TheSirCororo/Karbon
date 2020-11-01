@@ -8,26 +8,26 @@ plugins {
     `java-library`
 }
 
-project.afterEvaluate {
-    val m2Dir = File(System.getProperty("user.home"), ".m2")
-    val repositoryDir = File(m2Dir, "repository")
-    val paperDir = File(repositoryDir, "com"+File.separatorChar+"destroystokyo"+File.separatorChar+"paper"+File.separatorChar+"paper")
-
-    fun runProcess(dir: File?, command: String): Int {
-        val process = ProcessBuilder(command.split(" ")).directory(dir).start()
-        process.inputStream.bufferedReader().forEachLine {
-            println(it)
-        }
-        return process.waitFor()
-    }
-
-    println("$paperDir not exists, building...")
-    if (!paperDir.exists()) {
-        println("Cloning https://github.com/PaperMC/Paper.git")
-        runProcess(null, "git clone --recursive https://github.com/PaperMC/Paper.git")
-        runProcess(File( "Paper"), "/bin/bash paper install")
-    }
-}
+//project.afterEvaluate {
+//    val m2Dir = File(System.getProperty("user.home"), ".m2")
+//    val repositoryDir = File(m2Dir, "repository")
+//    val paperDir = File(repositoryDir, "com"+File.separatorChar+"destroystokyo"+File.separatorChar+"paper"+File.separatorChar+"paper")
+//
+//    fun runProcess(dir: File?, command: String): Int {
+//        val process = ProcessBuilder(command.split(" ")).directory(dir).start()
+//        process.inputStream.bufferedReader().forEachLine {
+//            println(it)
+//        }
+//        return process.waitFor()
+//    }
+//
+//    println("$paperDir not exists, building...")
+//    if (!paperDir.exists()) {
+//        println("Cloning https://github.com/PaperMC/Paper.git")
+//        runProcess(null, "git clone --recursive https://github.com/PaperMC/Paper.git")
+//        runProcess(File( "Paper"), "/bin/bash paper install")
+//    }
+//}
 
 allprojects {
     apply(plugin = "kotlin")
@@ -40,6 +40,7 @@ allprojects {
     repositories {
         mavenLocal()
         jcenter()
+        maven("https://gitlab.com/XjCyan1de/maven-repo/-/raw/master/")
         maven("https://oss.sonatype.org/content/repositories/snapshots/")
         maven("https://jitpack.io/")
         maven("https://repo.velocitypowered.com/snapshots/")
